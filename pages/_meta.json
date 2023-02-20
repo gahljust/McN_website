@@ -1,15 +1,25 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": {
+    "title": "Home",
+    "type": "page",
+    "theme": {
+      "typesetting": "article"
+    }
+  },
+  "MOLLER": {
+    "title": "MOLLER/ShowerMax",
+    "type": "page"
+  },
+  "Tutorials": {
+    "title": "Tutorials",
+    "type": "page"
+  },
   "about": {
     "title": "About",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+  "links": {
+    "title": "Links ↗",
+    "type": "page"
   }
 }
