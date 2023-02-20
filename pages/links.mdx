@@ -1,0 +1,87 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+import Video from '../components/Video'
+import Link from 'next/Link'
+
+# Measurment of the Lepton-Lepton Electro-weak Reaction - MOLLER 
+
+## First part: Theoretical background
+
+### 1.1.1. The Standard Model
+The Standard model is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The Standard Model is based on the following assumptions:
+
+{/* Make a bulleted list */}
+* Assumption 1: The fundamental particles are point-like and have no internal structure.
+* Assumption 2: The fundamental particles are described by quantum field theories.
+* Assumption 3: The fundamental particles interact with each other via the exchange of virtual particles.
+* Assumption 4: The fundamental particles are described by relativistic quantum field theories.
+
+### These are links
+<Link href="/docs/next/getting-started">**Getting Started**</Link>
+
+Click [here](/docs/next/getting-started) to get started.
+
+---
+
+{/* Make a table of the fundamental particles*/}
+### This is a table
+<div align = "center">
+| Particle | Charge | Mass | Spin | Generation |
+| -------- | ------ | ---- | ---- | ---------- |
+| Electron | -1 | 0.511 MeV | 1/2 | 1 |
+| Muon | -1 | 105.7 MeV | 1/2 | 2 |
+| Tau | -1 | 1.777 GeV | 1/2 | 3 |
+| Neutrino | 0 | 0 | 1/2 | 1 |
+| Muon Neutrino | 0 | 0 | 1/2 | 2 |
+| Tau Neutrino | 0 | 0 | 1/2 | 3 |
+| Photon | 0 | 0 | 1 | 1 |
+| W Boson | 0 | 80.4 GeV | 1 | 1 |
+| Z Boson | 0 | 91.2 GeV | 1 | 1 |
+| Gluon | 0 | 0 | 1 | 1 |
+| Quark | 2/3, -1/3, -1/3, -1/3 | 0.1-1 GeV | 1/2 | 1, 2, 3, 4 |
+| Higgs Boson | 0 | 125 GeV | 0 | 1 |
+</div>
+
+{/* Make a table of the fundamental interactions */}
+<div align = "center">
+| Interaction | Strength | Range | Description |
+| ----------- | -------- | ----- | ----------- |
+| Strong | 10^38 GeV | 10^-15 m | Holds the quarks together |
+| Weak | 10^16 GeV | 10^-15 m | Responsible for beta decay |
+| Electromagnetic | 10^9 GeV | 10^-15 m | Responsible for the interaction of charged particles |
+</div>
+
+
+
+### 1.1.2. The Electroweak Theory
+The electroweak theory is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The electroweak theory is based on the following assumptions:
+Assumption 1: The fundamental particles are point-like and have no internal structure.<br />
+
+<div align = "center">
+  <Video video={{src: '/videos/lights_go.mp4', title: 'This is a Video'}}/>
+</div>
+
+### This is a Code Block
+```js filename="What haha" {3} copy
+const hey = "hey";
+```
+ ### These are Tabs
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    **pNPM**: Fast, disk space efficient package manager.
+  </Tab>
+  <Tab>
+    **npm** is a package manager for the JavaScript programming language.
+  </Tab>
+  <Tab>
+    **Yarn** is a software packaging system.
+  </Tab>
+</Tabs>
+
+{/* Add a block of text with a blue background color */}
+<div style={{backgroundColor: 'blue', color: 'white', padding: '1rem'}}>
+  This is a block of text with a blue background color
+</div>
+{/* Add a block of blue text */}
+<div style={{color: 'blue'}}>
+  This is a block of blue text
+</div>
