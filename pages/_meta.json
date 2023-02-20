@@ -1,8 +1,8 @@
 {
   "index": "Introduction",
   "another": "Another Page",
+    "links": "Links",
   "advanced": "Advanced (A Folder)",
-  "links": "Links",
   "about": {
     "title": "About",
     "type": "page"
