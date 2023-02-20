@@ -8,7 +8,7 @@ export default function Video({ video }) {
   return (
     // align the video to the center of the page
     <div className = {styles.video}>
-        <video width="560" height="315" controls src={video.src} type="video/mp4" />
+        <video width="560" height="315" controls src={video.src} />
         <div className={styles.title}>{video.title}</div>
     </div >
   );
