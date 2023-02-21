@@ -1,0 +1,14 @@
+/* This is the style sheet for the videos */
+/* The video is 100% wide and 100% tall */
+.video {
+  /* Put a margin */
+  margin: 1em;
+  /* And a buffer*/
+  padding: 1em;
+
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
