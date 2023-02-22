@@ -11,14 +11,14 @@ const config: DocsThemeConfig = {
   ),
 
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/gahljust/McN_website',
   },
   chat: {
     link: 'https://discord.com',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/gahljust/McN_website',
   footer: {
-    text: 'Nextra Docs Template',
+    text: '2023 © Lens. All rights reserved.',
   },
 }
 
