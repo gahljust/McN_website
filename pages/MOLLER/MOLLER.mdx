@@ -1,16 +1,20 @@
 import { Tab, Tabs } from 'nextra-theme-docs'
 import Video from '@/components/video'
 import Yvideo from '@/components/yvideos'
+import Image from 'next/image'
 
 
 # MOLLER - Measurment of a Lepton-Lepton Electroweak Reaction 
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+ ~10 min read
+</small>
 
 MOLLER is an experiment that will run at the [Jefferson National Laboratory](https://www.jlab.org/). Its purpose is to measure the parity-violating 
 asymmetry of the lepton-lepton electroweak reaction. 
 
 This page will briefly overview the concepts needed to understand the experiment's basic principles. The topics highlighted in the 
 videos and text below are the following:
-{/* MAke an unorderd list */}
+{/* Make an unorderd list */}
 
 * Lepton-lepton Electroweak reaction
 * Parity
@@ -21,101 +25,329 @@ videos and text below are the following:
 
 
 ## What is the Lepton-Lepton Electroweak Reaction?
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+  Covered in this section: Lepton-Lepton, Electroweak reaction, Electromagnetic interaction, Weak interaction
+</small>
 
 The video below describes the Lepton-Lepton Electroweak reaction.
+
+<br></br>
+<br></br>
 
 <div align = "center">
   <Yvideo video={{src: 'Nlp-PWTs1NY', title: 'MOLLER: Part 1'}} />
 </div>
 
-So you can see that the lepton-lepton electroweak reaction is a reaction between two leptons. In MOLLER it will be two electrons.
-When these electrons interact, there could be an **electromagnetic** interaction \(where they exchange a photon\) or a **weak** interaction \(where they exchange a Z^0 boson\). 
-The mixing of these interactions is why it is called the electroweak reaction. 
+<br></br>
+<br></br>
 
-Its actually not quite that simple but if your interested in learning more about the electroweak theory, 
-you can start by reading here [Electroweak](https://en.wikipedia.org/wiki/Electroweak_interaction). And an excelent introductory book 
-is [Introduction to elementary particle physics](https://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018) By David Griffiths.
+
+So you can see that the lepton-lepton electroweak reaction is a reaction between two leptons. In MOLLER it will be two electrons.
+When these electrons interact, there could be an **electromagnetic** interaction \(where they exchange a photon\) or a **weak**
+interaction \(where they exchange a Z^0 boson\). The mixing of these interactions is why it is called the **electroweak** reaction. 
+And MOLLER's measurment of the parity-violating asymmetry will allow us to derive a quantity called the **weak mixing angle**.
+
+Its actually not quite that simple. If your interested in learning more about electroweak theory, 
+you can start by reading here [Electroweak](https://en.wikipedia.org/wiki/Electroweak_interaction). And 
+an excelent introductory book is [Introduction to elementary particle physics](https://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018) 
+By David Griffiths.
 
 Ok, so know we know what is meant by "Lepton-lepton" and "Electroweak".
-But MOLLER will be a measurment of the **Parity Violating Asymmetry** in the lepton-lepton electroweak reaction.So, what is parity? and what 
-is parity violation?
+But MOLLER will be a measurment of the **Parity Violating Asymmetry** in the lepton-lepton electroweak reaction. So, what is parity? 
+and what is parity violation?
 
-The video below describes these concepts.
+<section id="parity">
+## What is Parity and Parity Violation?
+</section>
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+  Covered in this section: Parity, Parity Violation, Spin, Polarization.
+</small>
+
+Parity is a concept in physics that refers to the **spatial inversion** of a physical system. This means system remains the same when 
+its spatial coordinates are inverted. Then we say that the system has **parity symmetry**. However, the weak force violates this symmetry, 
+which means that some processes involving the weak force do not look the same when their spatial coordinates are inverted.
+
+This video below describes the concept of parity and parity violation.
+
+<br></br>
+<br></br>
 
 
-## First part: Theoretical background
+<div align = "center">
+  <Yvideo video={{src: '7gwmwdcTrbY', title: 'MOLLER: Part 2 Parity'}} /> 
+</div>
 
-### 1.1.1. The Standard Model
-The Standard model is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The Standard Model is based on the following assumptions:
+<br></br>
+<br></br>
 
-{/* Make a bulleted list */}
-* Assumption 1: The fundamental particles are point-like and have no internal structure.
-* Assumption 2: The fundamental particles are described by quantum field theories.
-* Assumption 3: The fundamental particles interact with each other via the exchange of virtual particles.
-* Assumption 4: The fundamental particles are described by relativistic quantum field theories.
 
-### This is a link
+So, in the context of the MOLLER experiment, the parity-violating asymmetry refers to the difference in scattering probabilities of 
+the electrons when their spins are flipped. By measuring this asymmetry, the experiment will gain insight into the weak mixing 
+angle, a crucial parameter in the electroweak theory.
 
-Click [here](/docs/next/getting-started) to get started.
+This brings us to the question of how do we actually measure the parity-violating asymmetry in the lepton-lepton electroweak reaction? 
+We can do this by using Cherenkov radiation.
+
+## Cherenkov Radiation and Cherenkov Detectors
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+  Covered in this section: Cherenkov Radiation, Cherenkov Detectors, DIRC, PMTs
+</small>
+
+---
+### Cherenkov Radiation
+
+Cherenkov radiation happens when a charged particle, like an electron, zips through a medium faster than light can travel in that 
+same medium. As a result, the particle gives off a cone-shaped burst of electromagnetic radiation, which we call Cherenkov radiation. 
+It's like a sonic boom, but for light.
+
+
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![HeHelllooo y](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+        Here you can see a sonic Boom coming from a Jet breaking the sound barrier.
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<br></br>
+<br></br>
+
+
+
+This video below describes Cherenkov radiation.
+
+<br></br>
+<br></br>
+
+
+<div align = "center">
+  <Yvideo video={{src: 'JWegr5wRRLQ', title: 'MOLLER: Part 3 Cherenkov Radiation'}} />
+</div>
+
+<br></br>
+<br></br>
+
+
+
+If you're curious to learn more about Cherenkov radiation, you can start by checking out this wikipedia [article](https://en.wikipedia.org/wiki/Cherenkov_radiation). 
+
+---
+### Cherenkov detectors
+Alright, so that's what Cherenkov radiation is. But what does this have to do with the MOLLER experiment? Well, MOLLER 
+uses detectors that are sensitive to Cherenkov radiation. When electrons from MOLLER's electron beam scatter and travel through the 
+Cherenkov detectors and they emit Cherenkov radiation. By analyzing the patterns of Cherenkov radiation intensity we can derive 
+the value of the weak mixing angle.
+
+To do this, MOLLER uses special Cherenkov detectors, called thin quartz Cherenkov detectors. Which are a special kind of detector known as 
+a DIRC detector. DIRC stands for Detection of Internally Reflected Cherenkov light. These detectors are designed to pick up all or most of 
+Cherenkov radiation emitted by charged particles passing through them. The radition is then captured by photomultiplier tubes (PMTs), and 
+recorded by the experiment's data acquisition system.
+
+This video below gives an example of how these types Cherenkov detectors work.
+
+<br></br>
+<br></br>
+
+
+<div align = "center">
+  <Yvideo video={{src: 'Nlp-PWTs1NY', title: 'MOLLER: Part 4'}} />
+</div>
+
+<br></br>
+<br></br>
+
+The Cherenkov radiation signal read by the detectors will be slightly different depending on the direction of the electron's 
+[spin](/MOLLER/MOLLER/#parity).And this is how the measurment of a lepton-lepton electroweak reaction will work.
+
+## MOLLER Design and the ShowerMax Detector
+
+Now that we understand all of the basic physics concepts we can look at a high level overview of the MOLLER experiment. 
+
+<br></br>
+<br></br>
+
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+        Here you can see what MOLLER experiment will look like.
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br></br>
+<br></br>
+---
+
+In the MOLLER experiment, several components work together. First, there's the **11 GeV longitudinally polarized electron beam**
+
+<br></br>
+<br></br>
+
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+        Image of the Beam. Which is generated via photoemission on a GaAs photocathode using circularly polarized laser light. 
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br></br>
+<br></br>
 
 ---
 
-{/* Make a table of the fundamental particles*/}
-### This is a table
+Next is the 1.25 m **liquid hydrogen target**, where the beam electrons interact with target electrons, leading to scattering events. 
+
+<br></br>
+<br></br>
+
 <div align = "center">
-| Particle | Charge | Mass | Spin | Generation |
-| -------- | ------ | ---- | ---- | ---------- |
-| Electron | -1 | 0.511 MeV | 1/2 | 1 |
-| Muon | -1 | 105.7 MeV | 1/2 | 2 |
-| Tau | -1 | 1.777 GeV | 1/2 | 3 |
-| Neutrino | 0 | 0 | 1/2 | 1 |
-| Muon Neutrino | 0 | 0 | 1/2 | 2 |
-| Tau Neutrino | 0 | 0 | 1/2 | 3 |
-| Photon | 0 | 0 | 1 | 1 |
-| W Boson | 0 | 80.4 GeV | 1 | 1 |
-| Z Boson | 0 | 91.2 GeV | 1 | 1 |
-| Gluon | 0 | 0 | 1 | 1 |
-| Quark | 2/3, -1/3, -1/3, -1/3 | 0.1-1 GeV | 1/2 | 1, 2, 3, 4 |
-| Higgs Boson | 0 | 125 GeV | 0 | 1 |
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+       Liquid hydrogen target.
+      </td>
+    </tr>
+  </table>
 </div>
 
-{/* Make a table of the fundamental interactions */}
+<br></br>
+<br></br>
+
+---
+
+Following the target is the **spectrometer** system, consisting of resistive **toroidal magnets** with a 7-fold azimuthal symmetry, which separates 
+and focuses the scattered electrons. 
+
+<br></br>
+<br></br>
+
 <div align = "center">
-| Interaction | Strength | Range | Description |
-| ----------- | -------- | ----- | ----------- |
-| Strong | 10^38 GeV | 10^-15 m | Holds the quarks together |
-| Weak | 10^16 GeV | 10^-15 m | Responsible for beta decay |
-| Electromagnetic | 10^9 GeV | 10^-15 m | Responsible for the interaction of charged particles |
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+       Liquid hydrogen target.
+      </td>
+    </tr>
+  </table>
 </div>
 
+<br></br>
+<br></br>
 
+---
 
-### 1.1.2. The Electroweak Theory
-The electroweak theory is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The electroweak theory is based on the following assumptions:
-Assumption 1: The fundamental particles are point-like and have no internal structure.<br />
+The primary detectors in the system are the **thin quartz Cherenkov radiators** and photomultiplier tubes 
+(PMTs), which measure the Cherenkov radiation emitted by the scattered electrons. 
 
-### This is a Code Block
-```js filename="What haha" {3} copy
-const hey = "hey";
-```
- ### These are Tabs
-<Tabs items={['pnpm', 'npm', 'yarn']}>
-  <Tab>
-    **pNPM**: Fast, disk space efficient package manager.
-  </Tab>
-  <Tab>
-    **npm** is a package manager for the JavaScript programming language.
-  </Tab>
-  <Tab>
-    **Yarn** is a software packaging system.
-  </Tab>
-</Tabs>
+<br></br>
+<br></br>
 
-{/* Add a block of text with a blue background color */}
-<div style={{backgroundColor: 'blue', color: 'white', padding: '1rem'}}>
-  This is a block of text with a blue background color
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+       The primary thin quartz detectors.
+      </td>
+    </tr>
+  </table>
 </div>
-{/* Add a block of blue text */}
-<div style={{color: 'blue'}}>
-  This is a block of blue text
+
+<br></br>
+<br></br>
+
+---
+
+Finally we have additional detectors including **ShowerMax** (sampling calorimeters), **pion detectors** (acrylic calorimeters), and large and 
+small angle monitors, which help monitor backgrounds and calibrations. Together, these components form a comprehensive experimental 
+setup that allows scientists to measure the parity-violating asymmetry in the lepton-lepton electroweak reaction.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+       <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+        ShowerMax detector.
+      </td>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+        Pion detector.
+      </td>
+    </tr>
+  </table>
 </div>
+
+<br></br>
+<br></br>
+
+---
+
+
+So, imagine you're an electron zipping through the MOLLER experiment. You and your fellow electrons are part of an 11 GeV 
+longitudinally polarized beam, and you're about to interact with a 1.25 m liquid hydrogen target. As you approach the target, 
+you can feel the electromagnetic and weak forces at play, exchanging photons and Z^0 bosons with other electrons you encounter.
+
+As you continue your journey through the experiment, you'll pass through a series of resistive toroidal magnets, which help 
+separate and focus you and your scattered peers. This setup is pretty clever because it has a 7-fold azimuthal symmetry, so 
+it's designed to catch electrons scattered at both forward and backward angles.
+
+Once you've whizzed past the magnets, you'll enter a region filled with special detectors, like thin quartz Cherenkov radiators. 
+You'll emit Cherenkov radiation as you pass through these detectors, and we will use this information to study the electroweak 
+interaction and the parity-violating asymmetry.
+
+You might also run into other auxiliary detectors along the way, such as shower-max detectors (sampling calorimeters), pion 
+detectors (acrylic calorimeters), and large and small angle monitors. These devices help the researchers keep track of backgrounds 
+and calibrations while they analyze the data.
+
+In a nutshell, your adventure through the MOLLER experiment will provide scientists with crucial insights into the underlying 
+physics of electron-electron interactions and the electroweak theory. And who knows, you might even help them discover new physics 
+beyond the Standard Model!
+
+
+That concludes the overveiw of the MOLLER experiment. In the next post we will look at the ShowerMax detector in more detail.
