@@ -9,7 +9,8 @@ import Image from 'next/image'
  ~10 min read
 </small>
 
-MOLLER is an experiment that will run at the [Jefferson National Laboratory](https://www.jlab.org/). Its purpose is to measure the parity-violating 
+MOLLER is a cutting-edge experiment designed to study the electroweak interaction of particles, specifically electrons.
+MOLLER will run at the [Jefferson National Laboratory](https://www.jlab.org/). Its purpose is to measure the parity-violating 
 asymmetry of the lepton-lepton electroweak reaction. 
 
 This page will briefly overview the concepts needed to understand the experiment's basic principles. The topics highlighted in the 
@@ -67,14 +68,14 @@ Parity is a concept in physics that refers to the **spatial inversion** of a phy
 its spatial coordinates are inverted. Then we say that the system has **parity symmetry**. However, the weak force violates this symmetry, 
 which means that some processes involving the weak force do not look the same when their spatial coordinates are inverted.
 
-This video below describes the concept of parity and parity violation.
+The video below describes the concept of parity and parity violation.
 
 <br></br>
 <br></br>
 
 
 <div align = "center">
-  <Yvideo video={{src: '7gwmwdcTrbY', title: 'MOLLER: Part 2 Parity'}} /> 
+  <Yvideo video={{src: 'bZOfov-zb5U', title: 'MOLLER: Part 2 Parity'}} /> 
 </div>
 
 <br></br>
@@ -141,35 +142,46 @@ If you're curious to learn more about Cherenkov radiation, you can start by chec
 
 ---
 ### Cherenkov detectors
-Alright, so that's what Cherenkov radiation is. But what does this have to do with the MOLLER experiment? Well, MOLLER 
-uses detectors that are sensitive to Cherenkov radiation. When electrons from MOLLER's electron beam scatter and travel through the 
-Cherenkov detectors and they emit Cherenkov radiation. By analyzing the patterns of Cherenkov radiation intensity we can derive 
-the value of the weak mixing angle.
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+  Covered in this section: Cherenkov Detectors, total internal reflection, PMTs
+</small>
+Alright, so that's what Cherenkov radiation is. But what does this have to do with the MOLLER experiment?
 
-To do this, MOLLER uses special Cherenkov detectors, called thin quartz Cherenkov detectors. Which are a special kind of detector known as 
-a DIRC detector. DIRC stands for Detection of Internally Reflected Cherenkov light. These detectors are designed to pick up all or most of 
-Cherenkov radiation emitted by charged particles passing through them. The radition is then captured by photomultiplier tubes (PMTs), and 
-recorded by the experiment's data acquisition system.
+MOLLER uses detectors that are sensitive to Cherenkov radiation. When electrons from MOLLER's electron beam scatter off of target electrons 
+and travel through the Cherenkov detectors and they emit Cherenkov radiation. By analyzing the patterns of Cherenkov radiation intensity 
+we can derive the value of the **weak mixing angle**.
 
-This video below gives an example of how these types Cherenkov detectors work.
+To do this, MOLLER uses Cherenkov detectors, called thin quartz detectors. These detectors are designed to pick up all or most 
+of the Cherenkov radiation emitted by charged particles passing through them. They do this because of a physical feture called 
+**total internal reflection**. The radition is then captured by photomultiplier tubes (**PMTs**), and recorded by the experiment's 
+data acquisition system.
+
+The video below discusses how these types of Cherenkov detectors work.
 
 <br></br>
 <br></br>
 
 
 <div align = "center">
-  <Yvideo video={{src: 'Nlp-PWTs1NY', title: 'MOLLER: Part 4'}} />
+  <Yvideo video={{src: 'pfgycNLuD78', title: 'MOLLER: Part 4'}} />
 </div>
 
 <br></br>
 <br></br>
 
-The Cherenkov radiation signal read by the detectors will be slightly different depending on the direction of the electron's 
-[spin](/MOLLER/MOLLER/#parity).And this is how the measurment of a lepton-lepton electroweak reaction will work.
+So, now we understand that MOLLER will measure the weak mixing angle using Cherenkov detectors. The detectors will detect Cherenkov radiation
+emitted by electrons. This radiation will bounce around inside of the detector until it exits a beveled end and enters a photomultiplier tube.
+By switching the direction of the electron's [spin](/MOLLER/MOLLER/#parity), we can measure a small change in the intensity of the Cherenkov radiation.
+This is how the measurment of a lepton-lepton electroweak reaction will work.
 
-## MOLLER Design and the ShowerMax Detector
+## MOLLER Design
 
-Now that we understand all of the basic physics concepts we can look at a high level overview of the MOLLER experiment. 
+Now that we understand the basic physics concepts of *how* MOLLER will measure the weak mixing angle we can look at a high level 
+overview of the entire MOLLER experiment.
+
+Key components of the experiment include a **Beam**, a **hydrogen target**, a **magnetic spectrometer** for sorting the scattered electrons,
+ **Cherenkov detectors** to capture the light emitted, and additional detectors like the **Showermax** for gathering more data. This 
+ section will give more detail about each of these components.
 
 <br></br>
 <br></br>
@@ -178,12 +190,12 @@ Now that we understand all of the basic physics concepts we can look at a high l
   <table>
     <tr>
       <td style={{ padding: "20px 20px" }}>
-        ![](/images/sBoom_jet.png)
+        ![](/images/MOLLER_set_up.png)
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: "center", maxWidth: "250px"  }}>
-        Here you can see what MOLLER experiment will look like.
+        Here you can see what the MOLLER experiment will look like.
       </td>
     </tr>
   </table>
@@ -193,10 +205,17 @@ Now that we understand all of the basic physics concepts we can look at a high l
 <br></br>
 ---
 
-In the MOLLER experiment, several components work together. First, there's the **11 GeV longitudinally polarized electron beam**
+<br></br>
+<br></br>
 
-<br></br>
-<br></br>
+
+### The Beam
+
+The beam in the MOLLER experiment is a stream of high-energy electrons generated by a particle accelerator. These electrons are 
+"spun" so that they have a specific direction, or polarization. During the experiment, the spin direction is rapidly switched back and 
+forth (a process called helicity reversal). This beam is aimed at a hydrogen target.
+
+
 
 <div align = "center">
   <table>
@@ -217,6 +236,8 @@ In the MOLLER experiment, several components work together. First, there's the *
 <br></br>
 
 ---
+
+### The Target
 
 Next is the 1.25 m **liquid hydrogen target**, where the beam electrons interact with target electrons, leading to scattering events. 
 
@@ -243,8 +264,10 @@ Next is the 1.25 m **liquid hydrogen target**, where the beam electrons interact
 
 ---
 
-Following the target is the **spectrometer** system, consisting of resistive **toroidal magnets** with a 7-fold azimuthal symmetry, which separates 
-and focuses the scattered electrons. 
+### The Spectrometer
+
+Following the target is the **spectrometer** system, consisting of resistive **toroidal magnets** with a 7-fold azimuthal symmetry, 
+which separates and focuses the scattered electrons into 7 different channels.
 
 <br></br>
 <br></br>
@@ -269,8 +292,10 @@ and focuses the scattered electrons.
 
 ---
 
-The primary detectors in the system are the **thin quartz Cherenkov radiators** and photomultiplier tubes 
-(PMTs), which measure the Cherenkov radiation emitted by the scattered electrons. 
+### The Cherenkov Detectors
+After the electrons have passed through the spectrometer, they are detected by the **Cherenkov detectors**. The main detectors in the 
+MOLLER experiment are made of thin quartz and arranged in a specific geometry to effectively capture Cherenkov radiation emitted by the 
+scattered electrons. 
 
 <br></br>
 <br></br>
@@ -295,7 +320,36 @@ The primary detectors in the system are the **thin quartz Cherenkov radiators** 
 
 ---
 
-Finally we have additional detectors including **ShowerMax** (sampling calorimeters), **pion detectors** (acrylic calorimeters), and large and 
+These detectors are organized into six concentric rings, each divided into at least 21 individual segments around 
+the azimuth. The rings have different radial distances to capture the various scattered electrons. The second-largest ring primarily 
+captures the Moller electron signal, while the second-smallest ring mainly captures the unradiated elastic scattered signal from 
+electron-proton interactions. This strategic arrangement allows us to study the Cherenkov radiation patterns and gather crucial 
+information about the underlying physics in the experiment.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+  <table>
+    <tr>
+      <td style={{ padding: "20px 20px" }}>
+        ![](/images/sBoom_jet.png)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ textAlign: "center", maxWidth: "250px"  }}>
+       The rings of thin quartz detectors.
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br></br>
+<br></br>
+
+---
+
+Finally, we have additional detectors including **ShowerMax**, **pion detectors** (acrylic calorimeters), and large and 
 small angle monitors, which help monitor backgrounds and calibrations. Together, these components form a comprehensive experimental 
 setup that allows scientists to measure the parity-violating asymmetry in the lepton-lepton electroweak reaction.
 
@@ -327,6 +381,9 @@ setup that allows scientists to measure the parity-violating asymmetry in the le
 <br></br>
 
 ---
+
+Dr. McNulty's group is responsible design and construction of the ShowerMax detector. This is the detector that you would most likely be 
+working on if you were to join the group. The next page has much more detailed information about ShowerMax.
 
 
 So, imagine you're an electron zipping through the MOLLER experiment. You and your fellow electrons are part of an 11 GeV 
