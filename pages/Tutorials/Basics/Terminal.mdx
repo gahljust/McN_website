@@ -1,0 +1,673 @@
+---
+title: 'Tutorial: Terminal Basics'
+description: 'Learn how to use the terminal.'
+---
+
+import { Tab, Tabs } from 'nextra-theme-docs';
+import Yvideo from '@/components/yvideos';
+import { Callout } from 'nextra-theme-docs'
+ 
+
+# Tutorial: Terminal Basics
+
+## Introduction
+
+The terminal, also known as the command-line interface (CLI), is a text-based interface that allows you to interact with your computer's operating system. By entering commands in the terminal, you can perform a wide range of tasks such as file management, system administration, and software installation. In this tutorial, you'll learn the basics of using the terminal, including some common commands to help you get started.
+
+## Download and Installation
+
+Terminals are built into most operating systems, so there is no need to install additional software. To access the terminal:
+
+- macOS: Open the Terminal app (found in the Utilities folder within the Applications folder).
+- Windows: Use Windows PowerShell or the Windows Subsystem for Linux (WSL).
+- Linux: Open the terminal emulator for your distribution (e.g., GNOME Terminal, Konsole, xterm).
+
+## Basic Commands
+
+<Callout type="info" emoji="ℹ️">
+ Don't include the brakets [] when typing any of the commands on this page. They are used to indicate that the text inside the brackets is a placeholder for a value that you should replace with your own.
+</Callout>
+
+### Copying and Moving Files
+
+In the terminal, you can use commands to copy and move files or directories. Below are the commands for macOS/Linux, Windows PowerShell, and Windows Command Prompt:
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ```sh 
+    cp [source] [destination]   # Copy a file or directory from source to destination
+    mv [source] [destination]   # Move a file or directory from source to destination
+    cd [directory]     # Change the current directory to the specified one
+    pwd                # Print the current working directory
+    ls                 # List the contents of the current directory
+    ls -l              # List the contents of the current directory in long format
+    ls -a              # List the contents of the current directory, including hidden files
+    ```
+  </Tab>
+  <Tab>
+    ```sh
+    Copy-Item [source] [destination]   # Copy a file or directory from source to destination
+    Move-Item [source] [destination]   # Move a file or directory from source to destination
+    Set-Location [directory]     # Change the current directory to the specified one
+    Get-Location                # Print the current working directory
+    Get-ChildItem               # List the contents of the current directory
+    Get-ChildItem -Force        # List the contents of the current directory, including hidden files
+    ```
+  </Tab>
+  <Tab>
+  ```sh
+  copy [source] [destination]   # Copy a file or directory from source to destination
+  move [source] [destination]   # Move a file or directory from source to destination
+  cd [directory]     # Change the current directory to the specified one
+  cd                # Print the current working directory
+  dir               # List the contents of the current directory
+  dir /a            # List the contents of the current directory, including hidden files
+  ```
+  </Tab>
+</Tabs>
+
+
+### Creating and Deleting Files
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+
+<Tab>
+```sh
+touch [file]       # Create an empty file
+mkdir [directory]  # Create a new directory
+rm [file]          # Delete a file
+rm -r [directory]  # Delete a directory and all of its contents
+```
+</Tab>
+
+<Tab>
+```sh
+New-Item [file]       # Create an empty file
+New-Item -ItemType Directory [directory]  # Create a new directory
+Remove-Item [file]          # Delete a file
+Remove-Item -Recurse [directory]  # Delete a directory and all of its contents
+```
+</Tab>
+
+<Tab>
+```sh
+type nul > [file]       # Create an empty file
+mkdir [directory]  # Create a new directory
+del [file]          # Delete a file
+rmdir /s [directory]  # Delete a directory and all of its contents
+```
+</Tab>
+</Tabs>
+
+
+### Viewing and Editing Files
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+```sh 
+cat [file]         # Print the contents of a file to the terminal
+less [file]        # View the contents of a file one page at a time
+head [file]        # Print the first 10 lines of a file
+tail [file]        # Print the last 10 lines of a file
+nano [file]        # Open a file in the nano text editor
+```
+</Tab>
+
+<Tab>
+```sh
+Get-Content [file]         # Print the contents of a file to the terminal
+Get-Content [file] | more  # View the contents of a file one page at a time
+Get-Content [file] | select -first 10  # Print the first 10 lines of a file
+Get-Content [file] | select -last 10   # Print the last 10 lines of a file
+notepad [file]        # Open a file in the Notepad text editor
+```
+</Tab>
+
+<Tab>
+```sh
+type [file]         # Print the contents of a file to the terminal
+more < [file]       # View the contents of a file one page at a time
+findstr /N "^" [file] | findstr "^1^ ^2^ ^3^ ^4^ ^5^ ^6^ ^7^ ^8^ ^9^ ^10^"  # Print the first 10 lines of a file
+more +10 [file]     # Print the last 10 lines of a file (starting from line 10)
+notepad [file]      # Open a file in the Notepad text editor
+```
+</Tab>
+</Tabs>
+
+### SSH  Secure Shell 
+
+<Callout type="info" emoji="ℹ️">
+This is how you connect to a remote server like daq3.
+</Callout>
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+```sh
+ssh [username]@[server]  # Connect to a remote server
+```
+</Tab>
+<Tab>
+```sh
+ssh [username]@[server]  # Connect to a remote server
+```
+</Tab>
+<Tab>
+```sh
+ssh [username]@[server]  # Connect to a remote server
+```
+</Tab>
+</Tabs>
+
+### SCP Secure Copy
+
+<Callout type="info" emoji="ℹ️">
+This is how you copy files to and from a remote server.
+</Callout>
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+```sh
+scp [source] [username]@[server]:[destination]  # Copy a file or directory from source to destination on a remote server
+scp [username]@[server]:[source] [destination]  # Copy a file or directory from source on a remote server to destination
+```
+</Tab>
+<Tab>
+```sh
+scp [source] [username]@[server]:[destination]  # Copy a file or directory from source to destination on a remote server
+scp [username]@[server]:[source] [destination]  # Copy a file or directory from source on a remote server to destination
+```
+</Tab>
+<Tab>
+```sh
+scp [source] [username]@[server]:[destination]  # Copy a file or directory from source to destination on a remote server
+scp [username]@[server]:[source] [destination]  # Copy a file or directory from source on a remote server to destination
+```
+</Tab>
+</Tabs>
+
+### Look up History and Command information
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+```sh
+history  # List the last 1000 commands you have run
+man [command]  # View the manual page for a command
+```
+</Tab>
+<Tab>
+```sh
+Get-History  # List the last 1000 commands you have run
+Get-Help [command]  # View the manual page for a command
+```
+</Tab>
+<Tab>
+```sh
+doskey /history  # List the last 1000 commands you have run
+help [command]  # View the manual page for a command
+```
+</Tab>
+</Tabs>
+
+### Change Permissions
+
+<Callout type="info" emoji="ℹ️">
+You will need this to make a file executable.
+</Callout>
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+```sh
+chmod [permissions] [file]  # Change the permissions of a file
+```
+</Tab>
+<Tab>
+```sh
+Get-ACL [file] | Set-ACL -Path [file]  # Change the permissions of a file
+```
+</Tab>
+<Tab>
+```sh
+icacls [file] /grant [username]:F  # Change the permissions of a file
+```
+</Tab>
+</Tabs>
+
+
+## Terminal Tutorial
+
+In this tutorial, we will demonstrate the basic use of terminal commands. Follow the steps below to learn how to manage files and directories, view and edit files, and perform other useful tasks.
+
+### Prerequisites
+
+Make sure you have a terminal open and ready to use. Follow the instructions in the "Download and Installation" section of the main tutorial if you are unsure how to access the terminal on your system.
+
+## Part 1:
+
+In the first part of this tutorial, we will learn how to create, edit, and delete files and directories. We will also learn how to view the contents of files and change their permissions.
+
+### 1. Create a New Directory
+
+First, let's create a new directory called `terminal-tutorial`.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ``` sh {3} copy
+    mkdir terminal-tutorial
+    ```
+  </Tab>
+  <Tab>
+    ``` sh  {3} copy
+    New-Item -ItemType Directory terminal-tutorial
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    mkdir terminal-tutorial
+    ```
+  </Tab>
+</Tabs>
+
+You have now created a new directory called `terminal-tutorial`.
+
+### 2. Change to the New Directory
+
+Now, change the current directory to the `terminal-tutorial` directory that you just created. And print your working directory.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ``` sh {3} copy
+    cd terminal-tutorial
+    pwd
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    Set-Location terminal-tutorial
+    Get-Location
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    cd terminal-tutorial
+    cd
+    ```
+  </Tab>
+</Tabs>
+
+Here you can see you have moved to another directory and the path is printed.
+
+### 3. Create an Empty File
+
+Create an empty file named `example.txt` inside the `terminal-tutorial` directory.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ``` sh {3} copy
+    touch example.txt
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    New-Item example.txt
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    type nul > example.txt
+    ```
+  </Tab>
+</Tabs>
+
+You have now created a new file called `example.txt`.
+
+### 4. Edit the File
+
+Open `example.txt` in a text editor, add some content, and save the changes.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ```sh {3} copy
+    nano example.txt
+    # Inside nano, use the arrow keys to navigate and type "Hello World" on the first line.
+    # When you're done editing, press Ctrl + X to exit.
+    # Press Y to confirm that you want to save the changes.
+    # Press Enter to confirm the file name.
+    ```
+  </Tab>
+  <Tab>
+    ```sh {3} copy
+    notepad example.txt
+    # Inside Notepad, type "Hello World" on the first line.
+    # When you're done editing, click "File" > "Save" to save the changes.
+    # Close Notepad.
+    ```
+  </Tab>
+  <Tab>
+    ```sh {3} copy
+    notepad example.txt
+    # Inside Notepad, type "Hello World" on the first line.
+    # When you're done editing, click "File" > "Save" to save the changes.
+    # Close Notepad.
+    ```
+  </Tab>
+</Tabs>
+
+Now you have edited the file and saved your changes. There are many editors inside and outside the terminal, and over time you will likely use many of them. But this is a simple way to start.
+
+### 5. Display File Contents
+
+Now, let's display the contents of `example.txt`.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ``` sh {3} copy
+    cat example.txt
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    Get-Content example.txt
+    ```
+  </Tab>
+  <Tab>
+    ```sh {3} copy
+    type example.txt
+    ```
+  </Tab>
+</Tabs>
+
+This will print the entire contents of the file to the terminal. If you want less output, you can use the `head` command to print the first 10 lines of the file, or the `tail` command to print the last 10 lines of the file.
+
+### 6. Create a Backup
+
+Make a copy of `example.txt` named `example_backup.txt`.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+    ``` sh {3} copy
+    cp example.txt example_backup.txt
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    Copy-Item example.txt example_backup.txt
+    ```
+  </Tab>
+  <Tab>
+    ``` sh {3} copy
+    copy example.txt example_backup.txt
+    ```
+  </Tab>
+</Tabs>
+
+This makes a copy of the file and names it `example_backup.txt`.
+
+### 7. Delete a File
+Delete the example_backup.txt file.
+
+<Callout type="error" emoji="️🚫">
+This is permanent! It does not go to the trash. Be careful!
+</Callout>
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+rm example_backup.txt
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Remove-Item example_backup.txt
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+del example_backup.txt
+```
+</Tab>
+</Tabs>
+
+### 8. List Directory Contents
+List the contents of the terminal-tutorial directory.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+ls
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Get-ChildItem
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+dir
+```
+</Tab>
+</Tabs>
+
+These commands will print the contents of the current directory. So, you can see all of the files and directories inside.
+
+### 9. Change to the Parent Directory
+Change the current directory to the parent directory of terminal-tutorial.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+cd ..
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Set-Location ..
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+cd ..
+```
+</Tab>
+</Tabs>
+
+This command moves you up one directory.
+
+### 10. Edit the permissions of a file
+Change the permissions of the example.txt file to be executable.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+chmod +x example.txt
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Get-Item example.txt | Set-ItemProperty -Name IsExecutable -Value $true
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+icacls example.txt /grant *S-1-1-0:(RX)
+```
+</Tab>
+</Tabs>
+
+### 11. Remove the Directory
+Remove the terminal-tutorial directory and its contents.
+
+<Callout type="error" emoji="️🚫">
+This is permanent! Be careful!
+</Callout>
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+rm -r terminal-tutorial
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Remove-Item terminal-tutorial -Recurse
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+rmdir /s /q terminal-tutorial
+```
+</Tab>
+</Tabs>
+
+
+Congratulations! You have now successfully performed basic file and directory operations using the terminal. Keep practicing these commands to become more proficient in using the terminal.
+
+## Part 2
+
+<Callout type="error" emoji="️🚫">
+Until you are more comfortable with the terminal, do not remove (rm) any files or directories from daq3. If you accidentally remove a file or directory, contact Dr. McNulty.
+</Callout>
+
+In part 2, we will learn how to connect to a remote server using SSH. We will connect to the daq3 server and run some commands.
+
+### 12. Connect to a Remote Server using SSH
+
+Use SSH to securely connect to a remote server.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+``` sh {3} copy
+    ssh -Y daq@daq3.physics.isu.edu
+    ```
+  </Tab>
+  <Tab>
+``` sh {3} copy
+   ssh -Y daq@daq3.physics.isu.edu
+    ```
+  </Tab>
+  <Tab>
+``` sh {3} copy
+   ssh -Y daq@daq3.physics.isu.edu
+    ```
+  </Tab>
+</Tabs>
+
+You will now be prompted to enter your password. Enter your password and press enter. Get your password from Dr. McNulty.
+Thats it! You are now connected to the daq3 server. You can use 'ls' and have a look at the file structure. Then go ahead and disconnect from the server by typing `exit` and pressing enter.
+
+### 13. Transfer Files using SCP
+
+<Callout type="error" emoji="️🚫">
+  This is a dangerous command. When you scp files it will automaticly overwrite files with the same name. Only use the files in this tutorial to practice with. Do not try any other files until you are more comfortable with this command.
+</Callout>
+
+Use SCP (Secure Copy) to transfer files between your local machine and a remote server. Make sure you have disconnected from the daq3 server before continuing.
+
+#### Copy a File from Your Local Machine to a Remote Server
+
+First create a directory again 'terminal-tutorial ' on your local machine as in part 1 of this tutorial. And create a file named 'example.txt' in that directory.
+If havve trouble doing this, go back to part 1 of this tutorial.
+
+Now, you will copy the 'example.txt' file from your local machine to the remote server.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+```    sh {3} copy
+    scp [local_file_path]/terminal-tutorial/example.txt daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp [local_file_path]/terminal-tutorial/example.txt daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp [local_file_path]/terminal-tutorial/example.txt daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+</Tabs>
+
+<Callout type="info" emoji="ℹ️">
+Replace [local_file_path] with the actual path of the file on your local machine. you can use the command 'pwd' to get the path of the current directory.
+</Callout>
+
+You will be promtped again for your password. Enter your password and press enter.
+
+
+#### Copy a File from a Remote Server to Your Local Machine
+
+Now, you will copy the 'example.txt' file from the remote server to your local machine.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+```    sh {3} copy
+    scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+    ```
+</Tab>
+<Tab>
+```sh {3} copy
+scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+```
+
+ </Tab>
+  <Tab>
+```    sh {3} copy
+    scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+```
+  </Tab>
+</Tabs>
+
+You will be promtped again for your password. Enter your password and press enter.
+
+### 14. Transfer a Directory using SCP
+
+<Callout type="error" emoji="️🚫">
+  This is a dangerous command when you scp directories it will automaticly overwrite directories with the same name. Be very careful when using this command.
+  Only use the directories in this tutorial to practice with. Do not try any other directories until you are more comfortable with this command.
+</Callout>
+
+Now you will transfer an entire directory from your local machine to the remote server. To transfer a directory and its contents, use the `-r` option.
+
+#### Copy a Directory from Your Local Machine to a Remote Server
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+```    sh {3} copy
+    scp -r [local_directory_path]/terminal-tutorial daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp -r [local_directory_path]/terminal-tutorial daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp -r [local_directory_path]/terminal-tutorial daq@daq3.physics.isu.edu:/home/daq
+    ```
+  </Tab>
+</Tabs>
+
+#### Copy a Directory from a Remote Server to Your Local Machine
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+  <Tab>
+```    sh {3} copy
+    scp -r daq@daq3.physics.isu.edu:/home/daq/terminal-tutorial [local_directory_path]
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp -r daq@daq3.physics.isu.edu:/home/daq/terminal-tutorial [local_directory_path]
+    ```
+  </Tab>
+  <Tab>
+```    sh {3} copy
+    scp -r daq@daq3.physics.isu.edu:/home/daq/terminal-tutorial [local_directory_path]
+    ```
+  </Tab>
+</Tabs>
+
+That's it! You now know how to use SSH to connect to a remote server and use SCP to transfer files between your local machine and the remote server. With these skills, you can efficiently manage your files and directories when working with remote systems.
+

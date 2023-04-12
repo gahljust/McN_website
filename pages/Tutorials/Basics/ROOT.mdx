@@ -1,0 +1,127 @@
+---
+title: 'Tutorial: ROOT Analysis Framework Basics'
+description: 'Learn how to use the ROOT analysis framework.'
+---
+
+import { Tab, Tabs } from 'nextra-theme-docs';
+import Yvideo from '@/components/yvideos';
+import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+
+# Tutorial: ROOT Analysis Framework Basics
+## Introduction
+The ROOT analysis framework, developed by CERN, is a powerful tool for data analysis and visualization in high-energy physics and other scientific fields. In this tutorial, you'll learn the basics of using the ROOT framework, including working with histograms, trees, and graphs, as well as reading and writing data files.
+
+## Download and Installation
+Before you can start using ROOT, you'll need to install it on your computer. Follow the installation instructions on the ROOT website for your operating system:
+
+- [ROOT Install page](https://root.cern/install/)
+
+If you have a mac we strongly recommend using homebrew. If you don't have homebrew installed, follow the instructions on the [homebrew website](https://brew.sh/). Once homebrew is installed, you can install ROOT with the following command:
+  
+  ```bash copy
+  brew install root
+  ```
+This is easy and and requires no additional configuration. 
+
+Using conda is also a good choice. To download conda go to the [conda website](https://docs.conda.io/en/latest/miniconda.html). Once conda is installed,  you can install ROOT with the following command:
+
+```bash copy
+$ conda config --set channel_priority strict
+$ conda create -c conda-forge --name <my-environment> root
+$ conda activate <my-environment>
+```
+
+We do not recommend using the binaries provided by the ROOT website unless you are experienced with building your own software.
+
+## Tutorial
+
+This tutorial will cover to analyze data from a test beam of the Showermax detector. This will introduce you to some core skills you will use repeatedly. Namely you will need to:
+
+- Open a root file
+- Read a tree from the file
+- Fill a histogram from the data in the tree
+- Plot the histogram
+- Cut out a pedestal from the data
+- And fit the remaining data
+
+First in Part 1 will will do all of the above things from the terminal. Then in part 2 we will make a C++ macro to do the same thing. In general you will likely use macros the most often.
+
+### Part 1: Using the ROOT command line
+
+In this part we will first open a ROOT file using the TBrowser to see what the files look like. Then we will use the ROOT command line to read the data from the file, plot it, and fit it.
+
+#### Pre-requisites
+
+Before you begin download this [ROOT file](https://cernbox.cern.ch/index.php/s/5Q5Q5Q5Q5Q5Q5Q5) and save it to your computer. This file contains the data from a test beam of the Showermax detector.
+
+Then make sure you have successfully installed ROOT. You can check this by opening a terminal and typing:
+
+```bash copy
+$ root -l
+```
+
+#### Opening a ROOT file With TBrowser
+
+<small style={{ fontSize: "0.8em", color: "gray" }}>
+Note: The `-l` tells root to skip the splash screen and go straight to the command line.
+</small>
+
+In your terminal change to the directory where you saved the ROOT file. Then open the root command line:
+
+```bash copy
+$ root -l
+```
+<div align = "center">
+<Image src="/images/root_1.png" width="600" height="400" />
+</div>
+
+Now we will open a TBrowser, which you can use to look at root files. This is a GUI that allows you to navigate through the contents of a root file. To open TBrowser type:
+
+```bash copy
+TBrowser b
+```
+
+<div align = "center">
+<Image src="/images/root_2.png" width="600" height="400" />
+</div>
+
+As you are typing this you can press the tab key to autocomplete the command. This will save you a lot of time and prevent you from making typos.
+
+This will open a ROOT GUI (graphical user interface) window in your browser. 
+
+<div align = "center">
+<Image src="/images/root_2.png" width="600" height="400" />
+</div>
+
+Find the showermax.root file in the TBrowser and click on it. You will see a drop down menu click on the Rec "tree." You will see a list of "branches" in the tree. These are different variables that were recorded during the test beam. 
+
+<div align = "center">
+<Image src="/images/root_2.png" width="600" height="400" />
+</div>
+
+You can click on any of these branches to see the data that was recorded. Go ahead and look around the contents of the file click on a few different brabchs and you will see that they will display on your screen as a histogram.
+
+<div align = "center">
+<Image src="/images/root_2.png" width="600" height="400" />
+</div>
+
+Now click on the "det1_qdc_hr" branch this is the branch we will be using in this tutorial.
+
+<div align = "center">
+<Image src="/images/root_2.png" width="600" height="400" />
+</div>
+
+Now that you have seen what the distribution looks like, go ahead and close the TBrowser window. When you are back in the rrot command line type:
+
+```bash copy  
+.qqq
+```
+
+This will quit the root command line.
+
+#### Opening a ROOT file With the Command Line
+
+```bash copy
+root [0] TFile *f = new TFile("showermax.root")
+```
