@@ -4,10 +4,11 @@ import Image from 'next/image'
 
 const config: DocsThemeConfig = {
   // Add the logo image to the logo config with the Name
-  logo: ( <>
-            <Image src="/images/logo.svg" alt="Logo" width={20} height={20} />
-    <span style={{ marginLeft: '.4em', fontWeight: 700 }}>LENS</span>
-          </>
+  logo: (
+    <>
+      <Image src="/images/logo.svg" alt="Logo" width={20} height={20} />
+      <span style={{ marginLeft: '.4em', fontWeight: 700 }}>LENS</span>
+    </>
   ),
 
   project: {
@@ -20,6 +21,13 @@ const config: DocsThemeConfig = {
   footer: {
     text: '2023 © Lens. All rights reserved.',
   },
+
+  // Add the useNextSeoProps hook here
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – LENS'
+    }
+  }
 }
 
 export default config
