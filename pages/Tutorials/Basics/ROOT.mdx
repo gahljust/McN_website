@@ -9,21 +9,50 @@ import { Callout } from 'nextra-theme-docs'
 import Image from 'next/image'
 
 # Tutorial: ROOT Analysis Framework Basics
-## Introduction
+## Overview
 The ROOT analysis framework, developed by CERN, is a powerful tool for data analysis and visualization in high-energy physics and other scientific fields. In this tutorial, you'll learn the basics of using the ROOT framework, including working with histograms, trees, and graphs, as well as reading and writing data files.
 
+## Tutorial Objectives
+This tutorial is designed to:
+
+- Provide a high-level introduction to the ROOT analysis framework.
+- Enable quick hands-on experience with ROOT through practical analysis tasks that have been previously conducted by our group.
+
+## Limitations
+Please note that this tutorial does not aim to:
+
+- Give an indepth understanding of the full functionality of ROOT.
+- Explain the intricate details of how everything works.
+
+The primary objective of this tutorial is to equip beginners with the necessary knowledge to start conducting relevant analyses using the ROOT framework.
+
+## Other Resources
+
+There are many other great resources for learning ROOT. We recommend the following:
+
+- [ROOT Primer](https://root.cern/primer/)
+- [ROOT Manual](https://root.cern/manual/)
+- [ROOT Tutorials](https://root.cern/doc/master/group__Tutorials.html)
+- [ROOT Forum](https://root-forum.cern.ch/)
+
+These will also be discused more at the end of this tutorial.
+
 ## Download and Installation
-Before you can start using ROOT, you'll need to install it on your computer. Follow the installation instructions on the ROOT website for your operating system:
+Before you can start using ROOT, you'll need to install it on your computer. Follow the installation instructions on the ROOT website for your operating system.
 
 - [ROOT Install page](https://root.cern/install/)
 
-If you have a mac we strongly recommend using homebrew. If you don't have homebrew installed, follow the instructions on the [homebrew website](https://brew.sh/). Once homebrew is installed, you can install ROOT with the following command:
-  
+##### Homebrew
+---
+If you have a Mac, we strongly recommend using Homebrew. If you don't have Homebrew installed, follow the instructions on the [Homebrew website](https://brew.sh/). Once Homebrew is installed, you can install ROOT with the following command:  
   ```bash copy
   brew install root
   ```
 This is easy and and requires no additional configuration. 
 
+
+##### Conda
+---
 Using conda is also a good choice. To download conda go to the [conda website](https://docs.conda.io/en/latest/miniconda.html). Once conda is installed,  you can install ROOT with the following command:
 
 ```bash copy
@@ -32,22 +61,24 @@ $ conda create -c conda-forge --name <my-environment> root
 $ conda activate <my-environment>
 ```
 
-We do not recommend using the binaries provided by the ROOT website unless you are experienced with building your own software.
+We do not recommend using the binaries provided by the ROOT website unless you have experience building your own software.
 
 ## Tutorial
 
-This tutorial will cover to analyze data from a test beam of the Showermax detector. This will introduce you to some core skills you will use repeatedly. Namely you will need to:
+This tutorial will cover how to analyze data from a test beam of the Showermax detector. This will introduce you to some core skills you will use repeatedly. Namely you will need to:
 
 - Open a root file
 - Read a tree from the file
 - Fill a histogram from the data in the tree
 - Plot the histogram
-- Cut out a pedestal from the data
+- Shift the data to the pedestal
 - And fit the remaining data
 
-First in Part 1 will will do all of the above things from the terminal. Then in part 2 we will make a C++ macro to do the same thing. In general you will likely use macros the most often.
+First in part 1 we will do some of the above things from the terminal and root command line. Then in part 2 we will make a C++ macro to do the same thing. In general you will likely use macros the most often.
 
 ### Part 1: Using the ROOT command line
+
+The root command line with TBrowser is a good way to quickly look at root files and get a feel for the data. The TBrowser is a GUI that allows you to navigate through the contents of a root file. And can be good for quickly looking at the data. However, it is limited when doing a large amount of analysis. For that macros are better use.
 
 In this part we will first open a ROOT file using the TBrowser to see what the files look like. Then we will use the ROOT command line to read the data from the file, plot it, and fit it.
 
@@ -58,22 +89,22 @@ Before you begin download this [ROOT file](https://cernbox.cern.ch/index.php/s/5
 Then make sure you have successfully installed ROOT. You can check this by opening a terminal and typing:
 
 ```bash copy
-$ root -l
+root -l
 ```
-
-#### Opening a ROOT file With TBrowser
-
 <small style={{ fontSize: "0.8em", color: "gray" }}>
 Note: The `-l` tells root to skip the splash screen and go straight to the command line.
 </small>
 
+
+#### Opening a ROOT file With TBrowser
+
 In your terminal change to the directory where you saved the ROOT file. Then open the root command line:
 
 ```bash copy
-$ root -l
+root -l
 ```
 <div align = "center">
-<Image src="/images/root_1.png" width="600" height="400" />
+<Image src="/images/root/root_01.png" width="600" height="400" />
 </div>
 
 Now we will open a TBrowser, which you can use to look at root files. This is a GUI that allows you to navigate through the contents of a root file. To open TBrowser type:
@@ -83,45 +114,632 @@ TBrowser b
 ```
 
 <div align = "center">
-<Image src="/images/root_2.png" width="600" height="400" />
+<Image src="/images/root/root_02.png" width="600" height="400" />
 </div>
 
+
+<Callout type="info" emoji="💡">
 As you are typing this you can press the tab key to autocomplete the command. This will save you a lot of time and prevent you from making typos.
+</Callout>
 
 This will open a ROOT GUI (graphical user interface) window in your browser. 
 
-<div align = "center">
-<Image src="/images/root_2.png" width="600" height="400" />
-</div>
-
-Find the showermax.root file in the TBrowser and click on it. You will see a drop down menu click on the Rec "tree." You will see a list of "branches" in the tree. These are different variables that were recorded during the test beam. 
+<br></br>
+<br></br>
 
 <div align = "center">
-<Image src="/images/root_2.png" width="600" height="400" />
+<Image src="/images/root/root_03.png" width="600" height="400" />
 </div>
 
-You can click on any of these branches to see the data that was recorded. Go ahead and look around the contents of the file click on a few different brabchs and you will see that they will display on your screen as a histogram.
+Find the showermax.root file in the TBrowser and click on it. You will see a drop down menu click on the *Rec* 'tree.'' You will see a list of 'branches' in the tree. These are different variables that were recorded during the test beam. 
+
+<br></br>
+<br></br>
 
 <div align = "center">
-<Image src="/images/root_2.png" width="600" height="400" />
+<Image src="/images/root/root_04.png" width="600" height="400" />
 </div>
+
+You can click on any of these branches to see the data that was recorded. Go ahead and look around the contents of the file click on a few different branchs and you will see that they will display on your screen as a histogram.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_05.png" width="600" height="400" />
+</div>
+
+
+<br></br>
+<br></br>
+
 
 Now click on the "det1_qdc_hr" branch this is the branch we will be using in this tutorial.
 
+<br></br>
+<br></br>
+
+
 <div align = "center">
-<Image src="/images/root_2.png" width="600" height="400" />
+<Image src="/images/root/root_06.png" width="600" height="400" />
 </div>
 
-Now that you have seen what the distribution looks like, go ahead and close the TBrowser window. When you are back in the rrot command line type:
+<br></br>
+<br></br>
+
+
+Now you can seen what the distribution looks like, go ahead and close the TBrowser window. When you are back in the root command line enter this:
 
 ```bash copy  
 .qqq
 ```
 
+<br></br>
+<br></br>
+
+
+<div align = "center">
+<Image src="/images/root/root_07.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
 This will quit the root command line.
 
 #### Opening a ROOT file With the Command Line
 
+
+Make sure that you are in the directory where you saved the ROOT file.
+Lets open the root command line again:
+
 ```bash copy
-root [0] TFile *f = new TFile("showermax.root")
+root -l
 ```
+
+Now we will open the ROOT file. To do this we will use the **TFile** class. This class allows you to open and close ROOT files. To open the file type:
+
+```bash copy
+TFile *f = new TFile("showermax.root")
+```
+
+<div align = "center">
+<Image src="/images/root/root_08.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+This will create a pointer (you don't need to worry about what that is) to the file. You can check that the file is open by typing:
+
+```bash copy
+f->IsOpen()
+```
+
+<div align = "center">
+<Image src="/images/root/root_09.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+You will get a true or false response. If you get false, check that you are in the correct directory and that you spelled the file name correctly.
+
+Now we want to open the tree in the file. To do this we will use the **TTree** class. This class allows you to read and write trees. To open the tree type:
+
+```bash copy
+TTree *t = (TTree*)f->Get("Rec")
+```
+
+<div align = "center">
+<Image src="/images/root/root_10.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+#### Plotting the Data
+
+Ok now we want to analyze the data that is stored in the 'det1_qdc_hr' from earlier. To do this we will use the Draw() method of the TTree class. This method will draw a histogram of the data in the tree. To draw the histogram type:
+
+```bash copy
+t->Draw("det1_qdc_hr")
+```
+
+<div align = "center">
+<Image src="/images/root/root_11.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Here we are telling the Draw() method to draw the data in the 'det1_qdc_hr' branch. This will be plotted in a new window as a histogram by defualt.
+
+That's it! You have plotted the data from the ROOT file. If you just want to look at the data in a file this is all you need. But usaully we want to do some analysis. So let's fit the data to see how we can do this.
+
+#### Fitting the Data
+
+There a a few ways to do this. The simplest way to do this is to use the GUI and make a simple fit. The GUI has options to make any chagnes you want, but is best for quick and simple fits.
+
+First you want to click on the 'Tools' drop down menu and select 'Fit Panel.'
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_12.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+The Fit Panel will open in a new window. It should look like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_13.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+
+There are a lot of options, we are going to ignore most of those for now. We just want quick and simple fit. The guassian fit is already select3ed by default. Let's try that. Click on the 'Fit' button at the bottom in the middle. You should see something like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_14.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+This is not a great fit obviously. In fact there are a couple of steps that we didn't go through. The main problem is there is a very tall peak at the begining. This is called the pedestal, and is a feature of the [ADC](/MOLLER/Labsandequip), it's actually not apart of our data. We need to remove this before we can get our fit.
+
+At this point we could do all of these things from the root command line. However it can get messy and confusing pretty quickly, we find the root command line to be useful for quick looks. When you have several things you want to accomplish your best option is to use a macro. There is a huge benifit to using macros, mainly they are repeatable! Do it once and you have it forever.
+
+### Part 2: Using Macros 
+
+The second part of this tutorial will be about making and using a c++ macro. There are other programming languages you can use to make a macro, but c++ is the most common in Dr. McNulty's lab.
+
+#### Creating a Macro
+
+To do this we think it is best to start from scratch and make a completely new macro. So let's start by making a new file. So, open up your favorite text editor. We will be using [Visual Studio Code](https://code.visualstudio.com/) for this tutorial.
+And make a new file. We will call it 'showermax.C' and save it in the same directory as the ROOT file. The name is important, it has to end in '.C' for it to be a c++ macro.
+
+Now we need to add some code to the file. The first thing we need to do is include the ROOT libraries. To do this we will use the **#include** command. This command tells the compiler to include the ROOT libraries we will use. To do this enter the following code into the file at the top:
+
+```c copy
+#include "TFile.h"
+#include "TTree.h"
+#include "TH1.h"
+#include "TCanvas.h"
+#include "TStyle.h"
+#include "TMath.h"
+#include "TF1.h"
+```
+
+Now this macro is based on c++, so all of our code will be contained in a function. The function will be a void function, which means it will not return anything. To make a function we will use the **void** command. To make a function we will use the following syntax:
+
+```c copy
+void function_name()
+{
+    //code
+}
+```
+
+Our function will be named 'showermax.' Thisn name has to be the same as the name of the file for ROOT to read it correctly. Our function will look like this:
+
+```c copy
+void showermax()
+{
+    //code
+}
+```
+
+Now we want to add similar code that we used on the root command line. We will make a canvas with TCanvas. And we want to open the file and the tree. To do this we will use the **TFile** class. This class allows you to open and create ROOT files. To open the file type:
+
+```c copy
+TCanvas *c1 = new TCanvas("c1","c1",800,600);
+
+TFile *f = new TFile("showermax.root");
+TTree *t = (TTree*)f->Get("Rec");
+```
+One key difference here is the addition of the semi-colon (;) at the end of each line of code. This is required for c++.
+
+So far our file looks like this:
+
+```c copy
+#include "TFile.h"
+#include "TTree.h"
+#include "TH1.h"
+#include "TCanvas.h" 
+#include "TStyle.h"
+#include "TMath.h"
+#include "TF1.h"
+
+void showermax()
+{
+    TCanvas *c1 = new TCanvas("c1","c1",800,600);
+
+    TFile *f = new TFile("showermax.root");
+    TTree *t = (TTree*)f->Get("Rec");
+}
+```
+
+Lets stop editing here and check to make sure everything is working. To do this we will run this macro from the terminal.
+
+```bash copy
+root -l showermax.C
+```
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_15.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+And nothing! Good because we haven't asked it to draw anything yet but now we know the macro is working.
+
+#### Drawing the Data
+
+Let's add our data into an empty histogram. To do this we will use the **TH1F** class. This class allows you to make a one dimensional histogram.
+
+```c copy
+TH1F *h;
+```
+
+This is just a null pointer to a histogram. We will fill it using the draw function we used earlier.
+
+```c copy
+t->Draw("det1_qdc_hr>>h");
+```
+
+Now lets take a look at our handy work. First enter the `.qqq` in the root command line. And lets run the macro again. You can press the up arrow on your keyboard to get the last command you entered. This will save you a lot of typing.
+
+```bash copy
+root -l showermax.C
+```
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_16.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+
+Alright good so far!
+
+#### Shifting to the Pedestal
+
+We want to shift the data to the true 'zero' point. The data we have is given in 'channels' from an ADC or QDC. These represent the charge that is being detected. The equipment has a baseline channel that we want to correct for by shifting the data over. The pedestal is the first very tall peak at the begining of the histogram. And We want to be consistant in the method we use. We may have hundreds or thousands of these to look through in a real experiment, and we don't want 'eye-ball' this correection every time.
+
+##### Adding Cuts
+---
+
+Before we move on we will add some 'cuts.' We won't explain much about this but to state that this will cut out other unwanted data before we get to the pedestal. We can do this very simply by adding a cut to the draw function. To do this we will add in the parameter for cut's in the draw function. Let's change the line of code that draws the data to the following:
+
+```c copy
+t->Draw("det1_qdc_hr>>h","isGoldenTrack&&!isNoisy");
+```
+We will add a few more cuts later on as well.
+
+<Callout type="info" emoji="ℹ️">
+Here the cut values go in the second parameter of the draw function and are seperated by a comma. Draw("variable>>histogram","cut1&&cut2") Adding more && will allow you to add more cuts.
+</Callout>
+
+Type `.qqq` in the root command line and run the macro again and make sure everything is working.
+
+```bash copy
+root -l showermax.C
+```
+
+<div align = "center">
+<Image src="/images/root/root_17.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+
+Still Working! Great!
+
+For this example we will go back to using the GUI. In the GUI screen if you grab the bottom of an axis you can select a section to zoom in too. Like this:
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_18.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_19.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+You can see we have zoomed in on the pedestal region. Now we will make a fit with the fit panel like we did before. Go to the `Tools` drop down menu and select `Fit Panel` just like before, then press the `Fit` button. (It is already set to the gaussian fit we want by default). We will use this to get a mean value for the pedestal.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_20.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Now you should have something like this.
+
+Now look at your terminal window the fit results should be printed there. We will use these values to cut out the pedestal.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_21.png" width="600" height="400" />
+</div>
+
+<br></br> 
+<br></br>
+
+ We want the mean value so we can shift the data. In practice you would hard code this into your macro but for now this is simpler.
+
+##### Adding Cuts to the Macro
+
+Our mean value is about 1293 this is how much we want to shift our data over by to give us our correct starting point. We are also going to add a few more cut's that weren't included earlier. These extra cut's have to do with the location of the events measured.
+
+```c copy
+t->Draw("det1_qdc_hr - 1293 >>h","isGoldenTrack&&!isNoisy&&(det1_y>8&&det1_y<18)&&(det1_x>1&&det1_x<25)");
+```
+
+Make sure to use `.qqq` to axit the GUI and run the macro again.
+
+```bash copy
+root -l showermax.C
+```
+
+Here is our new results.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_22.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Great! 
+
+Now we have shifted the data to the correct starting point. We can see the pedestal is at zero. We will now convert the ADC channels into photoelectrons.
+
+#### Converting to Photoelectrons
+
+To do this we will scale our channels by the gain of the detector, and the charge of an electron. So, let'c change the draw function again.
+
+```c copy
+t->Draw("(det1_qdc_hr - 1293)*1.378 >>h","isGoldenTrack&&!isNoisy&&(det1_y>8&&det1_y<18)&&(det1_x>1&&det1_x<25)");
+```
+Now our showermax.C file looks like this so far.
+
+```c copy
+void showermax() {
+  TCanvas *c1 = new TCanvas("c1","c1",800,600);
+  TFile *f = new TFile("showermax.root");
+  TTree *t = (TTree*)f->Get("t");
+  TH1F *h;
+  t->Draw("(det1_qdc_hr - 1293)*1.378 >>h","isGoldenTrack&&!isNoisy&&(det1_y>8&&det1_y<18)&&(det1_x>1&&det1_x<25)");
+}
+```
+
+And our results look like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_23.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Looking good.
+
+Let's see if we can find the number of photoelectrons in this distribution. If you look at the right side of the histogram you will notice that there is a 'tail' there. For this analysis we are not intrested in that tail. 
+
+What we want to do is fit the main distribution.
+
+##### Fitting the Single PE peak
+
+We will first create a gaussin fit function and then put bounderies on it, so we can avoid including any of the tail. We will do this by creating a new function in the macro. We will name it f1.
+
+```c copy
+TF1 *f1 = new TF1("f1","gaus",200,1000);
+```
+
+Here we set the bounds on the function to be between 200 and 800. This is the range we want to fit. We will then add this function to the histogram.
+
+```c copy
+h->Fit("f1","R");
+```
+
+<Callout type="warning" emoji="⚠️">
+Did you get a Segmentation Fault? The reason is probably because the macro isnt retriving the histogram from memory correctly. try adding this after t-Draw() and before the TF1():
+    
+    ```c copy
+    h = (TH1F*)gDirectory->Get("h");
+    ```
+
+</Callout>
+
+By adding the second parameter "R" we are telling root to fit the function in the range we set. Run the macro again and you should see something like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_24.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Awesome! This is close to the center of our distribution. The fit gives us a mean ~ 547 PEs.
+
+This essentially completes the analysis. But, this isn't very presentable. So, wee will make a few cahnges to the way or results are displayed.
+
+#### Setting Presentation settings
+
+We will start by changing the title of the histogram. We will also change the axis labels. We will also change the color of the histogram. Let's add this to our macro:
+
+```c copy
+h->SetTitle("ShowerMax");
+h->GetXaxis()->SetTitle("PEs");
+h->GetYaxis()->SetTitle("Counts");
+h->SetLineColor(kRed);
+```
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_26.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Much better.
+
+Now let's add our fit results to statistics box. At the top of the macro we will add this line.
+
+```c copy
+gStyle->SetOptFit(1111);
+```
+
+So our file now look like this 
+```c copy
+    void showermax() {
+
+      gStyle->SetOptFit(1111);
+
+      TCanvas *c1 = new TCanvas("c1","c1",800,600);
+
+      TFile *f = new TFile("showermax.root");
+      TTree *t = (TTree*)f->Get("t");
+      TH1F *h;
+
+      t->Draw("(det1_qdc_hr - 1293)*1.378 >>h","isGoldenTrack&&!isNoisy&&(det1_y>8&&det1_y<18)&&(det1_x>1&&det1_x<25)");
+
+      h = (TH1F*)gDirectory->Get("h");
+      TF1 *f1 = new TF1("f1","gaus",200,1000);
+
+      h->Fit("f1","R");
+      h->SetTitle("ShowerMax");
+      h->GetXaxis()->SetTitle("PEs");
+      h->GetYaxis()->SetTitle("Counts");
+      h->SetLineColor(kRed);
+    
+    }
+```
+
+And our results look like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_25.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Great! Now we have a nice looking plot. But we don't need the stats from the histogram in the stat we actually want our fit results. So, we will remove the histogram stats. We will do this by adding this line to the top of the macro.
+
+```c copy
+gstyle->SetOptStat("e");
+```
+
+This will remove the histogram stats except for the number of entries. 
+
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_27.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Let's add a grid to our to make it easier to read.
+
+```c copy
+c1->SetGrid();
+```
+
+Finally we can save our plot as a pdf file. We will do this by adding this line to the end of the macro.
+
+```c copy
+c1->Print("showermax.pdf");
+```
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/root/root_28.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+And there you have it. A nice looking plot with the fit results. When you run this macro it will save a pdf file in the same directory as the macro.
+
+<Callout type="tip" emoji="💡">
+If you want to look at the plot in log scale you can add this line to the macro:
+    
+    ```c copy
+    c1->SetLogy();
+    ```
+</Callout>
+
+<Callout type="tip" emoji="💡">
+If you want to save the plot with a different extension you can change the extension in the Print() function. For example, if you want to save the plot as a png file you can change the Print() function to:
+    
+    ```c copy
+    c1->Print("showermax.png");
+    ```
+</Callout>
+
+## Conclusion
+
+In this tutorial, you learned how to use ROOT to plot and analyze data from a ROOT file that was used in an actual experiment. We covered basic plotting techniques, such as making and filling histograms making changes to the histogram values and fitting data. We also learned how to use macros to automate our analysis and make our work more reproducible. Finally, we added some presentation settings to our plot, such as changing the title, axis labels, and line color.
+
+With these skills, you can now apply ROOT to your own research projects and experiments. Remember to always document your code and analysis steps, and to use macros to make your work more efficient and reproducible. Happy ROOTing!
