@@ -1,85 +1,528 @@
-import { Tab, Tabs } from 'nextra-theme-docs'
-import Video from '@/components/video'
-
-# MOLLER - Measurment of a Lepton-Lepton Electroweak Reaction 
-
-## First part: Theoretical background
-
-### 1.1.1. The Standard Model
-The Standard model is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The Standard Model is based on the following assumptions:
-
-{/* Make a bulleted list */}
-* Assumption 1: The fundamental particles are point-like and have no internal structure.
-* Assumption 2: The fundamental particles are described by quantum field theories.
-* Assumption 3: The fundamental particles interact with each other via the exchange of virtual particles.
-* Assumption 4: The fundamental particles are described by relativistic quantum field theories.
-
-### This is a link
-
-Click [here](/docs/next/getting-started) to get started.
-
+---
+title: 'Tutorial: ROOT Analysis Framework Basics'
+description: 'Learn how to use the ROOT analysis framework.'
 ---
 
-{/* Make a table of the fundamental particles*/}
-### This is a table
-<div align = "center">
-| Particle | Charge | Mass | Spin | Generation |
-| -------- | ------ | ---- | ---- | ---------- |
-| Electron | -1 | 0.511 MeV | 1/2 | 1 |
-| Muon | -1 | 105.7 MeV | 1/2 | 2 |
-| Tau | -1 | 1.777 GeV | 1/2 | 3 |
-| Neutrino | 0 | 0 | 1/2 | 1 |
-| Muon Neutrino | 0 | 0 | 1/2 | 2 |
-| Tau Neutrino | 0 | 0 | 1/2 | 3 |
-| Photon | 0 | 0 | 1 | 1 |
-| W Boson | 0 | 80.4 GeV | 1 | 1 |
-| Z Boson | 0 | 91.2 GeV | 1 | 1 |
-| Gluon | 0 | 0 | 1 | 1 |
-| Quark | 2/3, -1/3, -1/3, -1/3 | 0.1-1 GeV | 1/2 | 1, 2, 3, 4 |
-| Higgs Boson | 0 | 125 GeV | 0 | 1 |
-</div>
+import { Tab, Tabs } from 'nextra-theme-docs';
+import Yvideo from '@/components/yvideos';
+import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
 
-{/* Make a table of the fundamental interactions */}
-<div align = "center">
-| Interaction | Strength | Range | Description |
-| ----------- | -------- | ----- | ----------- |
-| Strong | 10^38 GeV | 10^-15 m | Holds the quarks together |
-| Weak | 10^16 GeV | 10^-15 m | Responsible for beta decay |
-| Electromagnetic | 10^9 GeV | 10^-15 m | Responsible for the interaction of charged particles |
-</div>
+# GEANT4 Simulation Toolkit Tutorial
 
+## Overview
 
+GEANT4 is a powerful and versatile physics simulation toolkit that enables users to model complex particle interactions in various materials and geometries. It has a wide range of applications, including high-energy physics, astrophysics, medical physics, and radiation protection.
 
-### 1.1.2. The Electroweak Theory
-The electroweak theory is a theory that describes the fundamental particles and their interactions. It is a theory of the strong, weak and electromagnetic interactions. The electroweak theory is based on the following assumptions:
-Assumption 1: The fundamental particles are point-like and have no internal structure.<br />
+## Tutorial Objective
 
-<div align = "center">
-  <Video video={{src: '/videos/lights_go.mp4', title: 'This is a Video'}}/>
-</div>
+In this tutorial, we will walk you through the following steps:
 
-### This is a Code Block
-```js filename="What haha" {3} copy
-const hey = "hey";
+- Download and install GEANT4 using conda
+- Build and use the B1 example
+- Modify the B1 example by changing solids, materials, and detector geometry
+- Add a way to track energy deposition in a sensitive volume
+- Output the tracking data into a ROOT file
+
+## Tutorial Limitations
+
+This tutorial is intended for beginners and will cover only the basic concepts of GEANT4. More advanced features and applications can be found in the official GEANT4 documentation and other resources provided in the "Other Resources" section.
+
+## Other Resources
+
+- [Official GEANT4 Website](https://geant4.web.cern.ch/)
+- [GEANT4 User's Guide](https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/index.html)
+- [GEANT4 Doxygen Reference](https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html)
+- [GEANT4 Mailing List and Forum](https://geant4-forum.web.cern.ch/)
+
+## Prerequisites
+
+It is strongly suggested that you have worked through the previous tutorials before attempting this one. The following tutorials are recommended:
+
+- [Terminal](/Tutorials/Basics/Terminal)
+- [Root](/Tutorials/Basics/ROOT)
+
+It is strongly recommended that you have a Mac or Linux opereating system. If you are using Windows you should consider using a virtual machine or dual booting your computer. You find more information on the those here [Virtual Machine](https://www.virtualbox.org/) and [Dual Boot](https://www.geeksforgeeks.org/creating-a-dual-boot-system-with-linux-and-windows/).
+
+## Download and Install with Conda
+
+To install GEANT4 using conda, first, create a new environment and activate it:
+
+<Callout type="info" emoji="💡" >
+If you dont have conda installed, you can install it with [Homebrew](https://brew.sh/) on mac, run `brew install --cask miniconda`. For Linux see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
+</Callout>
+
+``` bash copy
+conda create --name geant4_env
+conda activate geant4_env
 ```
- ### These are Tabs
-<Tabs items={['pnpm', 'npm', 'yarn']}>
-  <Tab>
-    **pNPM**: Fast, disk space efficient package manager.
-  </Tab>
-  <Tab>
-    **npm** is a package manager for the JavaScript programming language.
-  </Tab>
-  <Tab>
-    **Yarn** is a software packaging system.
-  </Tab>
-</Tabs>
 
-{/* Add a block of text with a blue background color */}
-<div style={{backgroundColor: 'blue', color: 'white', padding: '1rem'}}>
-  This is a block of text with a blue background color
+Then install GEANT4 and its dependencies:
+
+```bash copy
+conda install -c conda-forge geant4
+```
+
+## Tutorial
+
+### Build the B1 Example
+
+With your geant4_env copy the B1 example from the GEANT4 installation directory to your current working directory:
+
+```bash copy
+cp -r $CONDA_PREFIX/share/Geant4-<version>/examples/basic/B1 $PWD/
+```
+
+<Callout type="info" emoji="💡" >
+  Replace <code>&lt;version&gt;</code> with the version of GEANT4 you installed. If you are not sure what version you installed, you can find it by `cd $CONDA_PREFIX/share/` and then `ls`. Or just hit `tab` as you're typing the cp command.
+</Callout>
+
+Create a build directory, navigate to it, and run cmake:
+
+```bash copy
+mkdir B1-build
+cd B1-build
+cmake ../B1
+```
+
+<Callout type="info" emoji="💡" >
+I sometimes get an error when running cmake. It can not find ZLIB. If this happens to you, you can fix it by running `conda install -c conda-forge zlib`  and then running `export ZLIB_ROOT=$CONDA_PREFIX`. `rm -r B1-Build` then try everything again.
+</Callout>
+
+Build the example:
+
+```bash copy
+make
+```
+
+### Use the B1 Example
+
+To run the B1 example, execute the following command:
+
+```bash copy
+./exampleB1
+```
+
+Now you should see this:
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_01.png" width="600" height="400" />
 </div>
-{/* Add a block of blue text */}
-<div style={{color: 'blue'}}>
-  This is a block of blue text
+
+<br></br>
+<br></br>
+
+Alright! Go ahead and  play around with the example by clicking on the green play button. This will run a simulation. In the command line at the bottom of the screen where it says `Session:` type `/run/beamOn 100` and press enter. 
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_02.png" width="600" height="400" />
 </div>
+
+<br></br>
+<br></br>
+
+There we told it to run 100 events. 
+
+Now that we know what it looks like let's modify the example so we can better understand how G4 works.
+
+
+### B1DetectorConstruction.cc Layout
+
+Creating an object in Geant4 involves defining the `material` and `solid geometry`, creating a `logical volume` that combines them, and then creating a `physical volume` to place the logical volume in the detector geometry. Logical volumes describe the volume's shape and material properties, while physical volumes define its position and orientation relative to its parent volume.
+
+The first thing we will do is take a look at the detector construction file to better understand how making these volumes works. All of the volumes are (usaully) created and defined in the detector construction files. Let's open the `B1DetectorConstruction.cc` it is located in the `B1/src` directory.
+
+When you open the file you should see this:
+  
+  ```cpp
+  #include "DetectorConstruction.hh"
+
+#include "G4RunManager.hh"
+#include "G4NistManager.hh"
+#include "G4Box.hh"
+#include "G4Cons.hh"
+#include "G4Orb.hh"
+#include "G4Sphere.hh"
+#include "G4Trd.hh"
+#include "G4LogicalVolume.hh"
+#include "G4PVPlacement.hh"
+#include "G4SystemOfUnits.hh"
+
+namespace B1
+{
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+DetectorConstruction::DetectorConstruction()
+{}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+DetectorConstruction::~DetectorConstruction()
+{}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+G4VPhysicalVolume* DetectorConstruction::Construct()
+{}}
+```
+
+At the top are the **header files** (.hh) and the **namespace**. The header files contain the definitions of the classes that are used in the code. And the namespace is just a way to organize the code. It is not necessary but it is good practice. 
+The next thing we see is the **constructor** and **destructor**. These are empty for this basic example. The last thing we see is the `Construct()` method. This is where the materials, geometry, etc are defined.
+
+The next line of code:
+
+```cpp
+61  G4NistManager* nist = G4NistManager::Instance();
+```
+
+Creates a pointer to the NIST material manager. The NIST material manager is used to create materials for the world, envelope, and shapes.
+
+From this point lets look at just one object, the envolope volume, to understand how G4 handles volumes.
+
+in this line of code we have some dimensions defined:
+
+```cpp
+65  G4double env_sizeXY = 20*cm, env_sizeZ = 30*cm;
+```
+
+Then the material is defined:
+
+```cpp
+66  G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
+```
+
+Then skipping a few lines down, the solid geometry is defined:
+
+```cpp
+101  G4Box* solidEnv =
+102     new G4Box("Envelope",                    //its name
+103         0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ); //its size
+```
+
+Here the `G4Box` is used to create a box-shaped volume. We use the varibles that were defined earlier on line 65. Half lengths have to be used, that is what the 0.5 * is for. So if we wanted it to be 10 cm long we would actually use 5 cm, or multiply 10 cm by 0.5. Notice that we alos give the shape a name.
+
+Next the logical volume:
+
+```cpp
+105  G4LogicalVolume* logicEnv =
+106    new G4LogicalVolume(solidEnv,            //its solid
+107                       env_mat,             //its material
+108                       "Envelope");         //its name
+```
+
+With this we put the material together with the solid geometry. We also give it a name, it's usaully the same name as the solid geometry.
+
+Finally the physical volume:
+
+```cpp
+110  new G4PVPlacement(0,                       //no rotation
+111                    G4ThreeVector(),         //at (0,0,0)
+112                    logicEnv,                //its logical volume
+113                    "Envelope",              //its name
+114                    logicWorld,              //its mother  volume
+115                    false,                   //no boolean operation
+116                    0,                       //copy number
+117                    checkOverlaps);          //overlaps checking
+```
+
+With `G4PVPlacement` a few things are happening. First we have options to rotate the volume and place it in a specific location. We assign a logical volume. We also assign it a *mother* volume, in this case we put it inside of the world volume. This is standard practice to make a *world* volume and then place everything inside of it. We also have the option to check for overlaps with other volumes. This is a good idea to do, but it can slow down the simulation.
+
+Thats it! That is how a volume is created. Now lets look at all of the pieces together.
+
+**Materials**:
+
+```cpp
+G4NistManager* nist = G4NistManager::Instance();
+G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
+G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
+G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
+G4Material* shape2_mat = nist->FindOrBuildMaterial("G4_BONE_COMPACT_ICRU");
+```
+
+**World volume**: A box-shaped world volume is created using the `G4Box` class, and the corresponding logical and physical volumes are defined.
+
+```cpp
+G4Box* solidWorld = new G4Box("World", 0.5*world_sizeXY, 0.5*world_sizeXY, 0.5*world_sizeZ);
+G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, world_mat, "World");
+G4VPhysicalVolume* physWorld = new G4PVPlacement(0, G4ThreeVector(), logicWorld, "World", 0, false, 0, checkOverlaps);
+```
+
+**Envelope volume**: An envelope volume is created as a box shape, and its logical and physical volumes are defined.
+
+```cpp
+G4Box* solidEnv = new G4Box("Envelope", 0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ);
+G4LogicalVolume* logicEnv = new G4LogicalVolume(solidEnv, env_mat, "Envelope");
+new G4PVPlacement(0, G4ThreeVector(), logicEnv, "Envelope", logicWorld, false, 0, checkOverlaps);
+```
+
+**Shape 1**: A conical section is created using the `G4Cons` class, and its logical and physical volumes are defined.
+
+```cpp
+G4Cons* solidShape1 = new G4Cons("Shape1", shape1_rmina, shape1_rmaxa, shape1_rminb, shape1_rmaxb, shape1_hz, shape1_phimin, shape1_phimax);
+G4LogicalVolume* logicShape1 = new G4LogicalVolume(solidShape1, shape1_mat, "Shape1");
+new G4PVPlacement(0, pos1, logicShape1, "Shape1", logicEnv, false , 0, checkOverlaps);
+```
+
+**Shape 2**: A trapezoid shape is created using the `G4Trd` class, and its logical and physical volumes are defined.
+
+```cpp 
+G4Trd* solidShape2 = new G4Trd("Shape2", 0.5*shape2_dxa, 0.5*shape2_dxb, 0.5*shape2_dya, 0.5*shape2_dyb, 0.5*shape2_dz); 
+G4LogicalVolume* logicShape2 = new G4LogicalVolume(solidShape2, shape2_mat, "Shape2");
+new G4PVPlacement(0, pos2, logicShape2, "Shape2", logicEnv, false, 0, checkOverlaps); 
+```
+
+**Scoring volume**: Shape 2 is set as the scoring volume.
+
+```cpp 
+fScoringVolume = logicShape2; 
+```
+
+We haven't talked about scoring yet. The scoring volume is set to track the physical processes that happen inside of it. We will talk about this in more detail later.
+
+**Return physical world**: The Construct() method returns the physical world volume.
+
+```cpp 
+return physWorld; 
+```
+
+
+### Change and Add geometry
+
+In this section, we will modify the B1 example by changing the solids, materials, and detector geometry. We will replace the conical section (Shape 1) with a sphere and change the material of Shape 2 to aluminum.
+
+Locate the code for Shape 1, which is a conical section. Comment out the following lines (132-147):
+
+<Callout type="info" emoji="💡">
+To easily comment out multiple lines, highlight the lines and press `Ctrl+/` on Linux or `Cmd+/` on Mac.
+</Callout>
+
+```cpp
+G4Cons* solidShape1 = new G4Cons("Shape1", shape1_rmina, shape1_rmaxa, shape1_rminb, shape1_rmaxb, shape1_hz, shape1_phimin, shape1_phimax);
+G4LogicalVolume* logicShape1 = new G4LogicalVolume(solidShape1, shape1_mat, "Shape1");
+new G4PVPlacement(0, pos1, logicShape1, "Shape1", logicEnv, false , 0, checkOverlaps);
+```
+Define a new sphere solid and its logical volume, and place it in the envelope:
+
+```cpp copy
+G4double sphere_radius = 4*cm;
+G4Sphere* solidSphere = new G4Sphere("Sphere", 0, sphere_radius, 0, 360*deg, 0, 180*deg);
+G4LogicalVolume* logicSphere = new G4LogicalVolume(solidSphere, shape1_mat, "Sphere");
+new G4PVPlacement(0, pos1, logicSphere, "Sphere", logicEnv, false , 0, checkOverlaps);
+```
+
+Save the file and rebuild the B1 example by running `make` in the B1-build directory.
+
+```bash copy
+cd B1-build
+make
+```
+
+Now let's check to make sure it worked. Run the modified B1 example with `./exampleB1`.
+
+```bash copy
+./exampleB1
+```
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_08.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Great! You should see the new geometry with a sphere instead of the conical section.
+
+Now locate the code for Shape 2 (line 160), which is a trapezoid. Change the material of Shape 2 to aluminum:
+
+```cpp copy
+G4Material* shape2_mat = nist->FindOrBuildMaterial("G4_Al");
+```
+
+Save the changes and rebuild the B1 example by running `make` in the B1-build directory.
+Run the modified B1 example with `./exampleB1`.
+
+Thats it! Those are the basics on how to make and modify volumes in GEANT4.
+
+### Add a root output files
+
+Now we can track the physical processes in the scoring volume and output that data into a ROOT file. We will use the `G4AnalysisManager` class to do this.
+
+Go to the `RunAction.cc` file and add this to the header section:
+
+```cpp copy
+#include "G4AnalysisManager.hh"
+```
+
+Then add this code to in the `RunAction::RunAction()`:
+
+<Callout type="info" emoji="💡">
+Always add code in between the main curly \{\} braces. Also add it to the end of the end of the main curly \{\} braces.
+</Callout>
+
+```cpp copy
+  auto analysisManager = G4AnalysisManager::Instance();
+  G4cout << "Using " << analysisManager->GetType() << G4endl;
+  analysisManager->SetVerboseLevel(1);
+  analysisManager->SetNtupleMerging(true);
+
+  analysisManager->CreateNtuple("Rec", "Edep and Position");
+  analysisManager->CreateNtupleDColumn("Edep");
+  analysisManager->FinishNtuple();
+```
+
+And add this the the `Runaction::~RunAction()` destructor:
+
+```cpp copy
+delete G4AnalysisManager::Instance();
+```
+
+Add this the the `RunAction::BeginOfRunAction()` method:
+
+```cpp copy
+  auto analysisManager = G4AnalysisManager::Instance();
+
+  G4String fileName = "Doseoutput.root";
+  analysisManager->OpenFile(fileName);
+```
+
+Add this the the `RunAction::EndOfRunAction()`:
+
+```cpp copy
+  auto analysisManager = G4AnalysisManager::Instance();
+  analysisManager->Write();
+  analysisManager->CloseFile();
+```
+
+
+Now go to the `SteppingAction.cc` file and add this to the header section:
+
+```cpp copy
+#include "G4AnalysisManager.hh"
+```
+
+Then add this code to in the `SteppingAction::UserSteppingAction()`: 
+
+```cpp copy
+  auto analysisManager = G4AnalysisManager::Instance();
+  analysisManager->FillNtupleDColumn(0, edepStep);
+  analysisManager->AddNtupleRow();
+```
+
+Save the changes and rebuild the B1 example by running `make` in the B1-build directory. Then run the modified B1 example with `./exampleB1`.
+
+```bash copy
+./exampleB1
+```
+From the Session: command line run `/run/beamOn 100` to generate 100 events. Now look in the B1-build directory for the `Doseoutput.root` file. Open it with ROOT and plot the energy deposition.
+
+```bash copy
+root -l Doseoutput.root
+```
+
+```bash copy
+TBrowser b
+```
+
+You should see something close to this plot:
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_09.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Great! There is just one more key element to using GEANT4 and that is running a macro file.
+
+### Running a macro file
+
+From your build directory open the run1.mac in an editor.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_10.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+And delete these lines:
+  
+  ```bash copy
+# 
+# proton 210 MeV to the direction (0.,0.,1.)
+#
+/gun/particle proton
+/gun/energy 210 MeV
+/tracking/verbose 2
+#
+/run/beamOn 1
+```
+
+Now cHange these lines:
+
+```bash copy
+/gun/particle gamma
+/gun/energy 6 MeV
+#
+/run/beamOn 5
+```
+
+To this:
+  
+  ```bash copy
+/gun/particle e-
+/gun/energy 6 MeV
+#
+/run/beamOn 1000
+```
+
+This chagnes our particle to an electron and the number of events to 1000. Save your changes and run the macro file with the following command:
+
+```bash copy
+./exampleB1 run1.mac
+```
+
+Open it up in ROOT agian and plot the energy deposition.
+
+```bash copy
+root -l Doseoutput.root
+```
+
+```bash copy
+TBrowser b
+```
+
+You should have something like this:
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/g4/g4_11.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+## Wrap Up
+
+Congratulations! You have successfully completed the GEANT4 simulation tutorial. You have learned how to download and install GEANT4, build and use the B1 example, modify the example by removing and adding solids, track energy deposition in a sensitive volume, and output the tracking data into a ROOT file, as well as run a macro file.
+If you want to track other physical process you can add them to the SteppingAction and RunAction files. Please note the when tracking the position of energy deposits you have to be careful of the pre or post step position you use. But that is a more advanced topic for another time.
+
+From here, you can explore more advanced features of GEANT4 and apply the toolkit to your specific projects. The official GEANT4 documentation, mailing list, and forums are great resources for expanding your knowledge and getting help with any issues you may encounter.
