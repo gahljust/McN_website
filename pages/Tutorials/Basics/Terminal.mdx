@@ -368,7 +368,7 @@ Open `example.txt` in a text editor, add some content, and save the changes.
   </Tab>
 </Tabs>
 
-Now you have edited the file and saved your changes. There are many editors inside and outside the terminal, and over time you will likely use many of them. But this is a simple way to start.
+Now you have edited the file and saved your changes. There are many editors inside and outside the terminal, and over time you will likely use many of them. But this is a simple way to start. Here is a nano [cheat sheet](https://www.nano-editor.org/dist/latest/cheatsheet.html).
 
 ### 5. Display File Contents
 
@@ -466,7 +466,28 @@ dir
 
 These commands will print the contents of the current directory. So, you can see all of the files and directories inside.
 
-### 9. Change to the Parent Directory
+### 9. Edit the permissions of a file
+Change the permissions of the example.txt file to be executable.
+
+<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
+<Tab>
+``` sh {3} copy
+chmod +x example.txt
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+Get-Item example.txt | Set-ItemProperty -Name IsExecutable -Value $true
+```
+</Tab>
+<Tab>
+``` sh {3} copy
+icacls example.txt /grant *S-1-1-0:(RX)
+```
+</Tab>
+</Tabs>
+
+### 10. Change to the Parent Directory
 Change the current directory to the parent directory of terminal-tutorial.
 
 <Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
@@ -488,27 +509,6 @@ cd ..
 </Tabs>
 
 This command moves you up one directory.
-
-### 10. Edit the permissions of a file
-Change the permissions of the example.txt file to be executable.
-
-<Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
-<Tab>
-``` sh {3} copy
-chmod +x example.txt
-```
-</Tab>
-<Tab>
-``` sh {3} copy
-Get-Item example.txt | Set-ItemProperty -Name IsExecutable -Value $true
-```
-</Tab>
-<Tab>
-``` sh {3} copy
-icacls example.txt /grant *S-1-1-0:(RX)
-```
-</Tab>
-</Tabs>
 
 ### 11. Remove the Directory
 Remove the terminal-tutorial directory and its contents.
@@ -568,8 +568,10 @@ Use SSH to securely connect to a remote server.
   </Tab>
 </Tabs>
 
-You will now be prompted to enter your password. Enter your password and press enter. Get your password from Dr. McNulty.
-Thats it! You are now connected to the daq3 server. You can use 'ls' and have a look at the file structure. Then go ahead and disconnect from the server by typing `exit` and pressing enter.
+<Callout type="info" emoji="️ℹ️">
+ Get your password from Dr. McNulty.
+</Callout>
+You will now be prompted to enter your password. Enter your password and press enter. Thats it! You are now connected to the daq3 server. You can use 'ls' and have a look at the file structure. Then go ahead and disconnect from the server by typing `exit` and pressing enter.
 
 ### 13. Transfer Files using SCP
 
@@ -582,7 +584,7 @@ Use SCP (Secure Copy) to transfer files between your local machine and a remote 
 #### Copy a File from Your Local Machine to a Remote Server
 
 First create a directory again 'terminal-tutorial ' on your local machine as in part 1 of this tutorial. And create a file named 'example.txt' in that directory.
-If havve trouble doing this, go back to part 1 of this tutorial.
+If have trouble doing this, go back to part 1 of this tutorial.
 
 Now, you will copy the 'example.txt' file from your local machine to the remote server.
 
@@ -618,18 +620,18 @@ Now, you will copy the 'example.txt' file from the remote server to your local m
 <Tabs items={['macOS/Linux', 'Windows PowerShell', 'Windows Command Prompt']}>
   <Tab>
 ```    sh {3} copy
-    scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+    scp daq@daq3.physics.isu.edu:/home/daq/example.txt [local_file_path]/terminal-tutorial
     ```
 </Tab>
 <Tab>
 ```sh {3} copy
-scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+    scp daq@daq3.physics.isu.edu:/home/daq/example.txt [local_file_path]/terminal-tutorial
 ```
 
  </Tab>
   <Tab>
 ```    sh {3} copy
-    scp daq@daq3.physics.isu.edu:/home/daq [local_file_path]/terminal-tutorial
+    scp daq@daq3.physics.isu.edu:/home/daq/example.txt [local_file_path]/terminal-tutorial
 ```
   </Tab>
 </Tabs>

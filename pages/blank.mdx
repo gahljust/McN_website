@@ -1,0 +1,48 @@
+## Features
+
+---
+
+{/* <video width="560" height="315" controls src="/videos/lights_go.mp4" type="video/mp4"  /> */}
+
+<Video video={{src: '/videos/lights_go.mp4', title: 'Lights Go'}}/>
+
+---
+---
+ 
+
+{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+<Yvideo video={{src: '9bZkp7q19f0', title: 'g-style'}} />
+---
+---
+
+
+```js filename="demo.js" {3} copy
+let a = 1;
+
+console.log(a);
+```
+
+## Component
+
+import { useState } from 'react'
+
+{/* Import CSS modules */}
+import styles from '@/components/counters.module.css'
+
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} times</button>
+    </div>
+  );
+};
+
+<Counter/>
+
+## External Component
+
+import Counters from '@/components/counters'
+
+<Counters />
+

@@ -32,8 +32,8 @@ This tutorial is intended for beginners and will cover only the basic concepts o
 
 - [Official GEANT4 Website](https://geant4.web.cern.ch/)
 - [GEANT4 User's Guide](https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/index.html)
-- [GEANT4 Doxygen Reference](https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html)
-- [GEANT4 Mailing List and Forum](https://geant4-forum.web.cern.ch/)
+- [GEANT4 Reference](https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html)
+- [GEANT4 Forum](https://geant4-forum.web.cern.ch/)
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ It is strongly recommended that you have a Mac or Linux opereating system. If yo
 To install GEANT4 using conda, first, create a new environment and activate it:
 
 <Callout type="info" emoji="💡" >
-If you dont have conda installed, you can install it with [Homebrew](https://brew.sh/) on mac, run `brew install --cask miniconda`. For Linux see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
+If you dont have conda installed, you can install it with [Homebrew](https://brew.sh/) on mac, run `brew install --cask miniconda`. For Linux see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). For more information on conda see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 </Callout>
 
 ``` bash copy
@@ -65,7 +65,9 @@ conda install -c conda-forge geant4
 
 ## Tutorial
 
-### Build the B1 Example
+### Part 1: Build and Use the B1 Example
+
+#### Build the B1 Example
 
 With your geant4_env copy the B1 example from the GEANT4 installation directory to your current working directory:
 
@@ -95,7 +97,7 @@ Build the example:
 make
 ```
 
-### Use the B1 Example
+#### Use the B1 Example
 
 To run the B1 example, execute the following command:
 
@@ -131,8 +133,9 @@ There we told it to run 100 events.
 
 Now that we know what it looks like let's modify the example so we can better understand how G4 works.
 
+### Part 2: Explaning the B1 Example
 
-### B1DetectorConstruction.cc Layout
+#### B1DetectorConstruction.cc Layout
 
 Creating an object in Geant4 involves defining the `material` and `solid geometry`, creating a `logical volume` that combines them, and then creating a `physical volume` to place the logical volume in the detector geometry. Logical volumes describe the volume's shape and material properties, while physical volumes define its position and orientation relative to its parent volume.
 
@@ -174,7 +177,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 ```
 
 At the top are the **header files** (.hh) and the **namespace**. The header files contain the definitions of the classes that are used in the code. And the namespace is just a way to organize the code. It is not necessary but it is good practice. 
-The next thing we see is the **constructor** and **destructor**. These are empty for this basic example. The last thing we see is the `Construct()` method. This is where the materials, geometry, etc are defined.
+The next thing we see is the **constructor** `DetectorConstruction::DetectorConstruction()` and **destructor** `DetectorConstruction::~DetectorConstruction()`. These are empty for this basic example. The last thing we see is the `Construct()` method. This is where the materials, geometry, etc are defined.
 
 The next line of code:
 
@@ -206,7 +209,7 @@ Then skipping a few lines down, the solid geometry is defined:
 103         0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ); //its size
 ```
 
-Here the `G4Box` is used to create a box-shaped volume. We use the varibles that were defined earlier on line 65. Half lengths have to be used, that is what the 0.5 * is for. So if we wanted it to be 10 cm long we would actually use 5 cm, or multiply 10 cm by 0.5. Notice that we alos give the shape a name.
+Here the `G4Box` is used to create a box-shaped volume. We use the varibles that were defined earlier on line 65. Half lengths have to be used, that is what the 0.5 * is for. So if we wanted it to be 10 cm long we would actually use 5 cm, or multiply 10 cm by 0.5. Notice that we also give the shape a name.
 
 Next the logical volume:
 
@@ -286,14 +289,20 @@ fScoringVolume = logicShape2;
 
 We haven't talked about scoring yet. The scoring volume is set to track the physical processes that happen inside of it. We will talk about this in more detail later.
 
-**Return physical world**: The Construct() method returns the physical world volume.
+**Return physical world**: The Construct() method returns the physical world volume and all of it's child volumes.
 
 ```cpp 
 return physWorld; 
 ```
 
+So, we can see this simulation is meant to simulate human bone and tissue. Everything is placed in water, as a proxy for the human body. And the process inside of the bone are tracked. This could be helpful in understanding the dose a patient could receive from a medical treatment. 
 
-### Change and Add geometry
+Now lets make a few changes to the simulation.
+
+
+### Part 3: Modify the simulation
+
+#### Change and Add geometry
 
 In this section, we will modify the B1 example by changing the solids, materials, and detector geometry. We will replace the conical section (Shape 1) with a sphere and change the material of Shape 2 to aluminum.
 
@@ -353,9 +362,9 @@ Run the modified B1 example with `./exampleB1`.
 
 Thats it! Those are the basics on how to make and modify volumes in GEANT4.
 
-### Add a root output files
+### Part 4: Add a root output file
 
-Now we can track the physical processes in the scoring volume and output that data into a ROOT file. We will use the `G4AnalysisManager` class to do this.
+Now we want to track the physical processes in the scoring volume and output that data into a ROOT file. We will use the `G4AnalysisManager` class to do this.
 
 Go to the `RunAction.cc` file and add this to the header section:
 
@@ -366,7 +375,7 @@ Go to the `RunAction.cc` file and add this to the header section:
 Then add this code to in the `RunAction::RunAction()`:
 
 <Callout type="info" emoji="💡">
-Always add code in between the main curly \{\} braces. Also add it to the end of the end of the main curly \{\} braces.
+Always add code in between the main curly \{\} braces. Also add it to the end of the end of the current code.
 </Callout>
 
 ```cpp copy
