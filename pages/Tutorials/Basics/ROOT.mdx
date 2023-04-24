@@ -38,6 +38,9 @@ There are many other great resources for learning ROOT. We recommend the followi
 
 These will also be discused more at the end of this tutorial.
 
+## Prerequisites
+It is strongly recommended that you have worked throught the [Terminal](/Tutorials/Basics/Terminal/) tutorial before starting this one. This tutorial will assume that you have a basic understanding of the terminal and how to use it.
+
 ## Download and Installation
 Before you can start using ROOT, you'll need to install it on your computer. Follow the installation instructions on the ROOT website for your operating system.
 
@@ -85,7 +88,15 @@ In this part we will first open a ROOT file using the TBrowser to see what the f
 
 #### Pre-requisites
 
-Before you begin download this [ROOT file](https://cernbox.cern.ch/index.php/s/5Q5Q5Q5Q5Q5Q5Q5) and save it to your computer. This file contains the data from a test beam of the Showermax detector.
+Before you begin you will need to get the root file from the daq3 server, and save it to your computer. This file contains the data from a test beam of the Showermax detector.
+
+You will need to use scp exactly like you did in the terminal tutorial [here](/Tutorials/Basics/Terminal/#scp_2).
+
+The file is located at:
+
+```bash copy
+    scp daq@daq3.physics.isu.edu:/home/daq3/root_tutorial/showermax.root [local_directory_path]
+```
 
 Then make sure you have successfully installed ROOT. You can check this by opening a terminal and typing:
 
@@ -611,17 +622,17 @@ By adding the second parameter "R" we are telling root to fit the function in th
 
 Awesome! This is close to the center of our distribution. The fit gives us a mean ~ 547 PEs.
 
-This essentially completes the analysis. But, this isn't very presentable. So, wee will make a few cahnges to the way or results are displayed.
+This essentially completes the analysis. But, this isn't very presentable. So, we will make a few cahnges to the way or results are displayed.
 
 #### Setting Presentation settings
 
-We will start by changing the title of the histogram. We will also change the axis labels. We will also change the color of the histogram. Let's add this to our macro:
+We will start by changing the title of the histogram. We will also change the axis labels and the color of the histogram. Let's add this to our macro:
 
 ```c copy
 h->SetTitle("ShowerMax");
 h->GetXaxis()->SetTitle("PEs");
 h->GetYaxis()->SetTitle("Counts");
-h->SetLineColor(kRed);
+h->SetLineColor(kBlack);
 ```
 
 <br></br>
@@ -663,7 +674,7 @@ So our file now look like this
       h->SetTitle("ShowerMax");
       h->GetXaxis()->SetTitle("PEs");
       h->GetYaxis()->SetTitle("Counts");
-      h->SetLineColor(kRed);
+      h->SetLineColor(kBlack);
     
     }
 ```
@@ -680,7 +691,7 @@ And our results look like this.
 <br></br>
 <br></br>
 
-Great! Now we have a nice looking plot. But we don't need the stats from the histogram in the stat we actually want our fit results. So, we will remove the histogram stats. We will do this by adding this line to the top of the macro.
+Great! Now we have a nice looking plot. But we don't need the stats from the histogram, just our fit results. So, we will remove the histogram stats. We will do this by adding this line to the top of the macro.
 
 ```c copy
 gstyle->SetOptStat("e");
@@ -709,6 +720,37 @@ Finally we can save our plot as a pdf file. We will do this by adding this line 
 
 ```c copy
 c1->Print("showermax.pdf");
+```
+
+Our file now:
+
+```c copy
+    void showermax() {
+
+      gStyle->SetOptFit(1111);
+      gStyle->SetOptStat("e");
+
+      TCanvas *c1 = new TCanvas("c1","c1",800,600);
+      c1->SetGrid();
+
+      TFile *f = new TFile("showermax.root");
+      TTree *t = (TTree*)f->Get("t");
+      TH1F *h;
+
+      t->Draw("(det1_qdc_hr - 1293)*1.378 >>h","isGoldenTrack&&!isNoisy&&(det1_y>8&&det1_y<18)&&(det1_x>1&&det1_x<25)");
+
+      h = (TH1F*)gDirectory->Get("h");
+      TF1 *f1 = new TF1("f1","gaus",200,1000);
+
+      h->Fit("f1","R");
+      h->SetTitle("ShowerMax");
+      h->GetXaxis()->SetTitle("PEs");
+      h->GetYaxis()->SetTitle("Counts");
+      h->SetLineColor(kBlack);
+
+      c1->Print("showermax.pdf");
+    
+    }
 ```
 
 <br></br>
