@@ -1,6 +1,7 @@
 import { Tab, Tabs } from 'nextra-theme-docs'
 import Video from '@/components/video'
 import Image from 'next/image'
+import { Callout } from 'nextra-theme-docs'
 
 # 3D Printing
 
@@ -10,7 +11,10 @@ Having good 3D printing capabilities will be a tremoundous asset to the lab. Thi
 
 In this tutorial, you'll learn how to use a 3D printer, specifically the Ultimaker S5, to create a small calibration cube. We'll walk you through the entire process, from designing the part in Fusion 360 to printing it on the Ultimaker S5. Additionally, we'll provide tips for troubleshooting common issues and changing printer materials.
 
+If you are going to use the S2+ printer the basic workflow is the same, but you will have to use an SD card instead of a USB drive, and you will probably need to level the bed first.
+
 ## Tutorial Objectives
+
 By the end of this tutorial, you will be able to:
 
 - Design a basic 3D part using Fusion 360.
@@ -26,17 +30,23 @@ This tutorial is not exhaustive and focuses on basic functions and common issues
 
 ## Other Resources
 
-Ultimaker S5 User Manual: [Link to the manual]
-Fusion 360 Tutorials: [Link to tutorials]
-Cura User Guide: [Link to the guide]
+- Ultimaker S5 User Manual: [Manual](https://support.makerbot.com/s/article/1667410778241)
+- Fusion 360 Tutorials: [Fusion Tutorials](https://help.autodesk.com/view/fusion360/ENU/courses/)
+- Using Cura: [Getting Started](https://support.makerbot.com/s/article/1667410778218)
+
+## Prerequisites
+
+- A computer with Fusion 360 [installed](/Tutorials/CAD/Basics). You can use any CAD software you like, but this tutorial will use Fusion 360.
+- A USB drive to transfer files between the computers.
 
 
 ## Cura Download and Installation
-Download the latest version of Ultimaker Cura from the official website: [Link to Cura download page].
+Download the latest version of Ultimaker Cura from the official website: [Download](https://ultimaker.com/software/ultimaker-cura).
 Open the installer and follow the on-screen instructions to install Cura.
-Once installed, launch Cura and select "Ultimaker S5" as the printer model.
 
-## Basic Drafting in Fusion 360
+## Tutorial
+
+### Basic Drafting in Fusion 360
 Open Fusion 360 and create a new design.
     - Select "File" and then "New Design."
 <br></br>
@@ -54,7 +64,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_04.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_20.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -68,7 +78,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_05.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_19.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -80,7 +90,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_06.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_04.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -92,7 +102,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_07.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_05.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -104,7 +114,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_08.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_06.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -116,7 +126,7 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_09.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_07.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -128,20 +138,20 @@ Open Fusion 360 and create a new design.
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_10.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_08.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
 - It should have our square already highlghted, if not click on it. Now we want to extrude it 10 mm, so type in 10 mm and press enter.
--Now rotate the view by grabing the cube in the top right corner and dragging it around. You should see a 3D cube now.
+- Now rotate the view by grabing the cube in the top right corner and dragging it around. You should see a 3D cube now.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_11.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_09.png" width="600" height="400" />
 </div>
 
 <br></br>
@@ -157,13 +167,13 @@ Great!
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/3dpr_12.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_10.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-## Critical Components of the S5 Printer
+### Critical Components of the S5 Printer
 
 Before we get started printing our part lets take a look at the critical components of the S5 printer.
 
@@ -171,133 +181,192 @@ Before we get started printing our part lets take a look at the critical compone
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/s5.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_17.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
 
-### Print bed 
+#### Print bed 
 This is where the model is printed. Always ensure it's clean. Depending on the type of material you're using, you may need to apply a build plate adhesive to the print bed. Standard glue sticks work well for PLA and nylon.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/printbed.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_18.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Print Head:  Extruder, Nozzle, Fan
-The print head containd the extruder, nozzle, and fan. The Nozzle and extruder are combined into one unit. The fan is used to cool the material as it is extruded.
+#### Print Head:  Extruder, Nozzle, Fan
+The print head contains the extruder, nozzle, and fan. The Nozzle and extruder are combined into one unit. The fan is used to cool the material as it is extruded.
 
 Check for clogs and always use the proper temperatures for the material you're using.
 
-The nozzle is the tip the material comes out of, the standard size is 0.4 mm, but there are many others. The standard material it is made out of is brass, but there are many other that work well for different materials that need to get very hot.
+The nozzle is the tip the material comes out of, the standard size is 0.4 mm, but there are many others. The standard material it is made out of is brass, but there are others that work well for different materials that need to get very hot.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/extruder.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_16.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Filament spool
+#### Filament spool
 The spool that holds the material; ensure it's properly loaded.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/fillspool.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_12.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Axes
+#### Axes
 The X, Y, and Z axes that control the movement of the print head; checkfor smooth movement and alignment.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/axes.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_21.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Bowden Tubes
+#### Bowden Tubes
 The tube that feeds the material from the spool to the extruder; check for proper tension and alignment.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/bowden.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_13.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Filament Feeder
+#### Filament Feeder
 The component that feeds the material from the spool to the extruder; check for proper tension and alignment. You can unclamp it to release tension on the filamnet.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/fillfeeder.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_14.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
-### Touchscreen Display 
+#### Touchscreen Display 
 The interface used to control the printer's settings and start prints; familiarize yourself with the menus and options.
 
 <br></br>
 <br></br>
 
 <div align = "center">
-<Image src="/images/3dprint/touchscreen.png" width="600" height="400" />
+<Image src="/images/3dprint/3dpr_15.png" width="600" height="400" />
 </div>
 
 <br></br>
 <br></br>
 
 
-## Slicing with Cura
+### Slicing with Cura
 
     - Open Cura and import the STL file by selecting "Open File" and selecting the STL file.
     <br></br>
     <br></br>
     <div align = "center">
-    <Image src="/images/3dprint/3dpr_13.png" width="600" height="400" />
+    <Image src="/images/3dprint/3dpr_11.png" width="600" height="400" />
     </div>
 
     <br></br>
     <br></br>
 
-    - Make sure that the "Ultimaker S5" printer is selected.
+    - If this is the first time using the software, select the printer drop down menu and select `Add printer`.
+
+    <br></br>
+    <br></br>
+
+    <div align = "center">
+    <Image src="/images/3dprint/3dpr_21.png" width="600" height="400" />
+    </div>
+
+    <br></br>
+    <br></br>
+
+    - Then click `Add non-networked printer` and select `Ultimaker S5` and press `Add`.
+
+    <br></br>
+    <br></br>
+
+    <div align = "center">
+    <Image src="/images/3dprint/3dpr_20.png" width="600" height="400" />
+    </div>
+
+    <br></br>
+    <br></br>
+
     - Make sure you have the correct material selected. In this case we are using Tough PLA with an AA 0.4 nozzle.
-    - In the printer settings menu select 
+    - In the printer settings menu the `Profile` drop down menu select *Draft -Fast*.
+    - Insert your usb drive into the computer.
+    - Now click the blue `Slice` button.
+
+You should now see something like this:
+
+    <br></br>
+    <br></br>
+
+    <div align = "center">
+    <Image src="/images/3dprint/3dpr_20.png" width="600" height="400" />
+    </div>
+
+    <br></br>
+    <br></br>
+
+    - Select the `Save to Removable Drive` option.
+    - Then properly eject the usb drive from the computer.
+
+    - Now plug the usb into the usb port at the front of the S5.
+    - On the touchscreen select `Print from USB` and select the file you just saved.
+    - Then press `Print`.
+
+
+    That's It! You should now see the automatic bed leveling process and then the print will start.
+
+    - When the print is done you can safely remove the print from the bed.
+
+
+
+
+
 
 
 ## Troubleshooting Basic Problems
-Poor Bed Adhesion: If the first layer isn't sticking well to the print bed, try cleaning the bed, adjusting the bed leveling, or applying an adhesive solution (e.g., glue stick).
-Warping: If the printed object is warping or curling, try increasing the bed temperature, reducing the cooling fan speed, or using a brim or raft.
-Stringing: If string-like material is present between parts of the print, try reducing the print temperature, adjusting retraction settings, or reducing print speed.
-Clogged Nozzle: If the material isn't flowing smoothly or at all, check for a clogged nozzle. Perform a cold pull or use a cleaning needle to remove the clog.
-Layer Shifting: If the layers of the print are misaligned, check for loose belts, obstructions in the printer's movement, or issues with the print G-code.
-Basic Information on Changing Material
+
+The best guide we have found for trouble shooting issues is [here](https://www.simplify3d.com/resources/print-quality-troubleshooting/). We suggest you start there, but here are few common issues and how to fix them.
+
+- Poor Bed Adhesion: If the first layer isn't sticking well to the print bed, try cleaning the bed and applying an adhesive solution (e.g., glue stick).
+- Warping: If the printed object is warping or curling, try using a brim or raft, increasing the bed temperature, and or reducing the cooling fan speed.
+- Stringing: If string-like material is present between parts of the print, try reducing the print temperature, adjusting retraction settings, or reducing print speed.
+- Clogged Nozzle: If the material isn't flowing smoothly or at all, check for a clogged nozzle. Perform a cold pull or use a cleaning needle to remove the clog.
+- Layer Shifting: If the layers of the print are misaligned, check for loose belts, obstructions in the printer's movement, or issues with the print G-code.
+
+
+## Changing Material
 On the Ultimaker S5's touchscreen display, select "Material" and then "Change Material."
 Follow the on-screen instructions to unload the current material from the printer.
 Load the new material spool onto the printer's spool holder.
@@ -306,3 +375,24 @@ The printer will automatically feed the material through the Bowden tube and int
 Confirm that the material is extruding correctly by observing the material coming out of the nozzle during the material change process.
 Once the material change is complete, you're ready to start a new print with the newly loaded material.
 Congratulations! You've completed the basic tutorial on 3D printing with the Ultimaker S5. We hope you've gained valuable knowledge and skills to confidently create and print your 3D designs. Happy printing!
+
+
+## Ultimaker S2+
+
+Using the S2+ is very much the same as using the S5. The only real difference is you need to use a SD card instead of a USB drive to transfer the files to the printer. The S2+ does not have a USB port. The S2+ also does not have the automatic bed leveling feature. You will need to manually level the bed before each print.
+
+## Wrap Up
+
+By completeing this tutorial you have learned how to make a simple 3D model, slice that model using 3D printing software, and print that model on the Ultimaker S5. You have also learned how to troubleshoot common problems and how to change the material. You should now be able to move on to more difficult projects and start printing your own designs.
+
+Here's a few more tips:
+
+
+    - You should stay with the Cura pre-set profiles espescially in the beginning. 
+    - As you grow in experience you can start to tweak the settings to get the best results. At first make changes suggested by other sources to fix problems.
+    - To test a new design print with a lower resolution (like Draft -fast), then make any changes to your CAD model, if the dimensions are not correct. After you have the correct dimensions, then you can go to a higher resolution (like Engineering - Normal).
+    - Make smaller sections of your larger prints and test them seperatly. This will help you find any problems before you print the whole thing.
+    - Avoid Over hangs and bridges. These are the most difficult parts to print. If you need to print something like this, print it in sections and find a way to fit them together.
+ 
+
+
