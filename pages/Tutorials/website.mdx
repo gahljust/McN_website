@@ -27,7 +27,9 @@ This website is built using next.js with mostly typscript, and MDX for the page 
 ## Limitations
 This tutorial is not an indepth guide on web development, it is meant ot give the specific information you need.
 
+<section id="resources">
 ## Other Resources
+</section>
 
 - [React](https://react.dev/learn)
 - [next.js](https://nextjs.org/docs)
@@ -257,14 +259,103 @@ git commit -m "your commit message" # this commits the changes to the repo
 git push # this pushes the changes to the repo
 ```
 
-Vercel automatically deploys the website when you push to the repo. So once you push your changes you can go to vercel and see them. If you are satified with the changes you can promote the new version to production on vercel.
+Vercel automatically deploys the website when you push to the repo. So once you push your changes you can go to vercel and see them. If you are satisfied with the changes you can promote the new version to production on vercel.
 
 ### Promoting to production
 
+However if you make changes to the page structure like we just did you will need to redeploy the website. To do this go to the vercel dashboard and click on the website. Then click on the deployments tab. You should see something like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/webdev/web_08.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Click on the latest deployment. You should see something like this.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/webdev/web_09.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+Click on the three dots next to the `visit` button.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/webdev/web_10.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+And select `Redeploy`.
+
+If you are satisfied with the changes you can promote the new version to production on vercel. You can do this by clicking the same three dots and selecting `Promote to Production`.
+
+Thats it! You have now made changes to the website and deployed them.
+
+### Part 3: Adding Collaborators to a GitHub Repo
+
+Adding collaborators to your GitHub repo allows other users to have direct access to your repository, enabling them to push changes, review code, and manage issues. To add collaborators to your GitHub repo, follow these steps:
+
+Go to the main page of your GitHub repo, and click on the Settings tab.
+
+<br></br>
+<br></br>
 
 
+<div align="center">
+<Image src="/images/webdev/web_11.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+In the left sidebar, click on Collaborators.
+
+<br></br>
+<br></br>
 
 
-You go 
+<div align="center">
+<Image src="/images/webdev/web_12.png" width="600" height="400" />
+</div>
 
-However if you make changes to the page structure like we just did you will need to redeploy the website.
+<br></br>
+<br></br>
+
+Click on the green `Add People` button.
+
+<br></br>
+<br></br>
+
+
+<div align="center">
+<Image src="/images/webdev/web_13.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
+In the search field, enter the GitHub username or email address of the person you want to invite as a collaborator, then click on the correct name from the search results.
+
+Select the appropriate permission level for the collaborator. The default permission level is Write, which allows the collaborator to push changes to the repo. Other permission levels include Read, which only allows viewing and pulling the repo, and Maintain, which grants additional privileges such as managing issues and pull requests.
+
+## Wrap up
+
+In this tutorial, we covered how to fork, clone, and deploy a website using Next.js, TypeScript, MDX, and Vercel. We also went through the process of making changes to the website, adding and removing pages, and pushing changes to the repo. Lastly, we demonstrated how to redeploy the website and promote it to production using Vercel.
+
+By following the steps outlined in this tutorial, you should now have a solid understanding of how to maintain and update the website. Remember that this tutorial is not an in-depth guide on web development, but rather a specific introduction to managing this particular website.
+
+As you continue to work on the website, you may need to explore additional resources to further your understanding of web development concepts. Please refer to the [Other resources](#resources) section for a list of helpful links.
