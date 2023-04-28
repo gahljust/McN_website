@@ -6,7 +6,7 @@ const config: DocsThemeConfig = {
   // Add the logo image to the logo config with the Name
   logo: (
     <>
-      <Image src="/images/bengal_logo.png" alt="Logo" width={50} height={50} />
+      <Image src="/images/bengal_logo.png" alt="Logo" width={50} height={50} style={{ marginRight: "100px" }} />
       <span style={{ marginLeft: '.4em', fontWeight: 700 }}></span>
     </>
   ),
@@ -20,32 +20,41 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/gahljust/McN_website',
   footer: {
     text:
-      <div style={{
+      
+      <div className="responsive-footer" style={{
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+        flexWrap: "wrap",
       }}>
         <div>
-      ISU {new Date().getFullYear()} © <a href="https://www2.cose.isu.edu/~mcnudust/" target="_blank">Dr. McNulty</a>
-      </div>
+        ISU {new Date().getFullYear()} © <a href="https://www2.cose.isu.edu/~mcnudust/" target="_blank">Dr. McNulty</a>
+        </div>
       <div style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         marginLeft: "325px",
+        flexWrap: "wrap",
       }}>
-        <Image src="/images/isu_logo.png" alt="Logo" width={40} height={40} style={{ marginRight: "100px" }} />
+        <a href="https://www.isu.edu" target="_blank">
+          <Image src="/images/isu_logo.png" alt="Logo" width={40} height={40} style={{ marginRight: "100px" }} />
+        </a>
 
-        <Image src="/images/doe_logo.png" alt="Logo" width={80} height={80} style={{ marginRight: "100px" }} />
+        <a href="https://www.energy.gov" target="_blank">
+          <Image src="/images/doe_logo.png" alt="Logo" width={80} height={80} style={{ marginRight: "100px" }} />
+        </a>
 
-        <Image src="/images/jlab_logo.png" alt="Logo" width={160} height={160} style={{ marginRight: "100px" }} />
+        <a href="https://www.jlab.org" target="_blank"> 
+          <Image src="/images/jlab_logo.png" alt="Logo" width={160} height={160} style={{ marginRight: "100px" }} /> 
+        </a>
+
       </div>
     </div>,
   },
 
   
-
   // Add the useNextSeoProps hook here
   useNextSeoProps() {
     return {
