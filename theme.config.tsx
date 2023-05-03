@@ -58,7 +58,7 @@ const config: DocsThemeConfig = {
   // Add the useNextSeoProps hook here
   useNextSeoProps() {
     return {
-      titleTemplate: '%s – LENS'
+      titleTemplate: '%s – McNulty Group',
     }
   }
 }

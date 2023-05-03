@@ -117,15 +117,22 @@ That's it! You now have a live website. You can click on the `Visit` button to s
 
 ### Part 2: Making changes to the website
 
-The website is designed for easy updates, including adding or removing pages and content. You'll find all the pages in the `pages` folder and images in the `public/images` folder. Want to add videos? Use the custom function for YouTube videos: `<Yvideo video={{src: 'pfgycNLuD78', title: 'MOLLER: Part 4'}} />`. Just put the video's link suffix in the src: field and the title in the title: field. You can also add images from the public folder with ` <Image src="/images/webdev/web_02.png" width="600" height="400" />`. Specify the image path in `src:` and set the dimensions with `width:` and `height:`.
+The website is designed for easy updates, including adding or removing pages and content. You'll find all the pages in the `pages` folder and images in the `public/images` folder. Want to add videos? Use the custom function for YouTube videos: `<Yvideo video={{src: 'pfgycNLuD78', title: 'MOLLER: Part 4'}} />`. Just put the video's link suffix in the src: field and the title in the title: field. You can also add images from the public folder with ` <Image src="/images/webdev/web_02.png" width="600" height="400" />`. Specify the image path in `src:` and set the dimensions with `width:` and `height:`. 
 
-Let's go voer the files structure of the website. In the repo you will see a folder called `pages`. This is where all the pages of the website are stored. 
+If you have trouble with the aspect ratio of the image you can something like instead.
+```html
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <img src="/images/folder/image.png" alt="Webdev Image" style={{ width: 'auto', height: '600px' }} />
+</div>
+```
+
+Let's go over the files structure of the website. In the repo you will see a folder called `pages`. This is where all the pages of the website are stored. 
 
 <br></br>
 <br></br>
 
-<div align = "center">
-<Image src="/images/webdev/web_03.png" width="600" height="200" />
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <img src="/images/webdev/web_03.png" alt="Webdev Image" style={{ width: 'auto', height: '600px' }} />
 </div>
 
 <br></br>
@@ -134,7 +141,7 @@ Let's go voer the files structure of the website. In the repo you will see a fol
 
 You can see here we have two folders (MOLLER and Tutorials) and several MDX files. Each page is a `.mdx` file. This is a file format that allows you to write markdown and react code in the same file. You can read more about it [here](https://mdxjs.com/). You can also ues straight html if you are more comfortable with that. There is a lot of flexibility in these files.
 
-Lets look at the for the MOLLER experiment open the MOLLER folder and select `MOLLER.mdx` file. You should see something like this.
+Lets look at the MOLLER experiment MDX open the MOLLER folder and select `MOLLER.mdx` file. You should see something like this.
 
 <br></br>
 <br></br>
@@ -158,7 +165,27 @@ open a new terminal and navigate to the folder where you cloned the repo. Then r
 npm run dev
 ```
 
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/webdev/web_14.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
+
 This will locally host the website. Now open up a browser window and go to `localhost:3000`. You should see the website.
+
+<br></br>
+<br></br>
+
+<div align = "center">
+<Image src="/images/webdev/web_15.png" width="600" height="400" />
+</div>
+
+<br></br>
+<br></br>
 
 Open the folder in a a text editor of your choice. Now go to the pages directiory and add a file called `test.mdx`. In the file add the following code.
 
@@ -245,7 +272,7 @@ You can see now we have added it the navigation bar and it doesnt appear in ever
 
 This is the basic idea of how to add a page to the website. You can add as many pages as you want. You can also add subfolders and pages inside of those folders. Make sure you add the pages to the `_meta.json` file in the folder where you want it to appear. And if you add a new folder make sure you add it to the `_meta.json` file in the parent folder, and make a new `_meta.json` file in the new folder.
 
-If we wanted to make a new folder out of the test.mdx for example we would have made a new directory in the pages folder, then added the directory name to the `_meta.json` file in the pages folder. Then we would have added a `_meta.json` file in the new directory and added the test page to that file. And the `test.mdx would also be in the new directory.
+If we wanted to make a new folder out of the test.mdx for example we would have made a new directory in the pages folder, then added the directory name to the `_meta.json` file in the pages folder. Then we would have added a `_meta.json` file in the new directory and added the test page to that file. And the `test.mdx` would also be in the new directory.
 
 Removing the page is just as easy. Just delete the page from the `_meta.json` file and delete the `.mdx` file.
 
