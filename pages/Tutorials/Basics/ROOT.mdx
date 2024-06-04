@@ -46,7 +46,7 @@ Before you can start using ROOT, you'll need to install it on your computer. Fol
 
 - [ROOT Install page](https://root.cern/install/)
 
-##### Homebrew
+##### Mac
 ---
 If you have a Mac, we strongly recommend using Homebrew. If you don't have Homebrew installed, follow the instructions on the [Homebrew website](https://brew.sh/). Once Homebrew is installed, you can install ROOT with the following command:  
   ```bash copy
@@ -55,7 +55,7 @@ If you have a Mac, we strongly recommend using Homebrew. If you don't have Homeb
 This is easy and and requires no additional configuration. 
 
 
-##### Conda
+###### Conda
 ---
 Using conda is also a good choice. To download conda go to the [conda website](https://docs.conda.io/en/latest/miniconda.html). Once conda is installed,  you can install ROOT with the following command:
 
@@ -66,6 +66,34 @@ $ conda activate <my-environment>
 ```
 
 We do not recommend using the binaries provided by the ROOT website unless you have experience building your own software.
+
+##### Windows/WSL/Linux
+---
+If you are using Windows, we recommend using the Windows Subsystem for Linux (WSL) to install ROOT. You can follow the instructions on the ROOT website for installing ROOT on Linux.
+You will need to install the latest version of Ubuntu from the Microsoft Store first.
+
+If you have Linux just skip to installing conda.
+
+For using and installing WSL go [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps). Follow the instructions they will have you first download the the right drivers for your Ubuntu version. 
+Then update WSl in powershell. Launch the ubuntu app as an admin then update with 'sudo apt update' and 'sudo apt upgrade'. Then install the x11-apps. 
+
+Now you want to install conda from the ubuntu terminal. Here is the website instructions page for [conda](https://docs.anaconda.com/free/miniconda/#quick-command-line-install). Use the instructions at the bottom for installing on linux.
+
+Once conda is installed you can install ROOT with the following command:
+
+```bash copy
+$ conda config --set channel_priority strict
+$ conda create -c conda-forge --name <my-environment> root
+$ conda activate <my-environment>
+```
+
+Replace `<my-environment>` with the name you want for your enviroment. To use root now when you open your ubuntu terminal type:
+
+```bash copy
+$ conda activate <my-environment>
+$ root
+```
+
 
 ## Tutorial
 
