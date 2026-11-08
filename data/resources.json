@@ -1,0 +1,233 @@
+[
+  {
+    "id": "mcnulty-s-website",
+    "title": "McNulty's website",
+    "href": "https://www2.cose.isu.edu/~mcnudust/",
+    "category": "McNulty's Group Links",
+    "section": ""
+  },
+  {
+    "id": "elog",
+    "title": "Elog",
+    "href": "http://daq3.physics.isu.edu/elog/PVeS/",
+    "category": "McNulty's Group Links",
+    "section": ""
+  },
+  {
+    "id": "electroweak-theory",
+    "title": "Electroweak Theory",
+    "href": "https://en.wikipedia.org/wiki/Electroweak_interaction",
+    "category": "MOLLER",
+    "section": "Physics Background"
+  },
+  {
+    "id": "introduction-to-elementary-particle-physics",
+    "title": "Introduction to elementary particle physics",
+    "href": "https://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018",
+    "category": "MOLLER",
+    "section": "Physics Background"
+  },
+  {
+    "id": "weak-mixing-angle",
+    "title": "Weak mixing angle",
+    "href": "https://en.wikipedia.org/wiki/Weinberg_angle",
+    "category": "MOLLER",
+    "section": "Physics Background"
+  },
+  {
+    "id": "moller",
+    "title": "MOLLER",
+    "href": "https://moller.jlab.org/moller_root/",
+    "category": "MOLLER",
+    "section": "MOLLER Experiment"
+  },
+  {
+    "id": "wiki",
+    "title": "Wiki",
+    "href": "https://moller.jlab.org/wiki/index.php/Main_Page",
+    "category": "MOLLER",
+    "section": "MOLLER Experiment"
+  },
+  {
+    "id": "remoll",
+    "title": "Remoll",
+    "href": "https://github.com/JeffersonLab/remoll",
+    "category": "MOLLER",
+    "section": "MOLLER Experiment"
+  },
+  {
+    "id": "linux-command-line-basics",
+    "title": "Linux Command Line Basics",
+    "href": "https://ubuntu.com/tutorials/command-line-basics",
+    "category": "Terminal",
+    "section": ""
+  },
+  {
+    "id": "introduction-to-the-mac-os-x-command-line",
+    "title": "Introduction to the Mac OS X Command Line",
+    "href": "https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line",
+    "category": "Terminal",
+    "section": ""
+  },
+  {
+    "id": "windows-command-prompt-tutorial",
+    "title": "Windows Command Prompt Tutorial",
+    "href": "https://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/",
+    "category": "Terminal",
+    "section": ""
+  },
+  {
+    "id": "nano-cheat-sheet",
+    "title": "nano cheat sheet",
+    "href": "https://www.nano-editor.org/dist/latest/cheatsheet.html",
+    "category": "Terminal",
+    "section": ""
+  },
+  {
+    "id": "root-primer",
+    "title": "ROOT Primer",
+    "href": "https://root.cern/primer/",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "root-manual",
+    "title": "ROOT Manual",
+    "href": "https://root.cern/manual/",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "root-tutorials",
+    "title": "ROOT Tutorials",
+    "href": "https://root.cern/doc/master/group__Tutorials.html",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "root-reference-guide",
+    "title": "ROOT Reference Guide",
+    "href": "https://root.cern/doc/master/index.html",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "root-forum",
+    "title": "ROOT Forum",
+    "href": "https://root-forum.cern.ch/",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "root-install-page",
+    "title": "ROOT Install page",
+    "href": "https://root.cern/install/",
+    "category": "ROOT",
+    "section": ""
+  },
+  {
+    "id": "official-geant4-website",
+    "title": "Official GEANT4 Website",
+    "href": "https://geant4.web.cern.ch/",
+    "category": "GEANT4",
+    "section": ""
+  },
+  {
+    "id": "geant4-user-s-guide",
+    "title": "GEANT4 User's Guide",
+    "href": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/index.html",
+    "category": "GEANT4",
+    "section": ""
+  },
+  {
+    "id": "geant4-reference",
+    "title": "GEANT4 Reference",
+    "href": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html",
+    "category": "GEANT4",
+    "section": ""
+  },
+  {
+    "id": "geant4-forum",
+    "title": "GEANT4 Forum",
+    "href": "https://geant4-forum.web.cern.ch/",
+    "category": "GEANT4",
+    "section": ""
+  },
+  {
+    "id": "autodesk",
+    "title": "Autodesk",
+    "href": "https://www.autodesk.com/support/account/education/students-educators/get-started",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "autodesk-inventor-tutorials",
+    "title": "Autodesk Inventor Tutorials",
+    "href": "https://help.autodesk.com/view/INVNTOR/2021/ENU/?guid=GUID-25E3BABE-0FF4-4542-854E-AD2F59E4BB4A",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "solidworks",
+    "title": "Solidworks",
+    "href": "https://www.solidworks.com/product/students",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "solidworks-tutorials",
+    "title": "Solidworks Tutorials",
+    "href": "https://www.solidworks.com/support/home",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "fusion-360-tutorials",
+    "title": "Fusion 360 Tutorials",
+    "href": "https://help.autodesk.com/view/fusion360/ENU/courses/",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "cose",
+    "title": "COSE",
+    "href": "https://help.cose.isu.edu/",
+    "category": "CAD",
+    "section": ""
+  },
+  {
+    "id": "s5-manual",
+    "title": "S5 Manual",
+    "href": "https://support.makerbot.com/s/article/1667410778241",
+    "category": "3D Printing",
+    "section": ""
+  },
+  {
+    "id": "using-cura",
+    "title": "Using Cura",
+    "href": "https://support.makerbot.com/s/article/1667410778218",
+    "category": "3D Printing",
+    "section": ""
+  },
+  {
+    "id": "troubleshooting",
+    "title": "Troubleshooting",
+    "href": "https://www.simplify3d.com/resources/print-quality-troubleshooting/",
+    "category": "3D Printing",
+    "section": ""
+  },
+  {
+    "id": "conda",
+    "title": "conda",
+    "href": "https://docs.conda.io/en/latest/miniconda.html",
+    "category": "Others",
+    "section": ""
+  },
+  {
+    "id": "homebrew",
+    "title": "Homebrew",
+    "href": "https://brew.sh/",
+    "category": "Others",
+    "section": ""
+  }
+]

@@ -1,21 +1,17 @@
-// video component for youtube videos
-
-import React from 'react';
 import styles from './video.module.css';
 
-export default function Yvideo({ video }) {
+export default function Yvideo({ video }: { video: { src: string; title: string } }) {
     return (
-        <div className={styles.video}>
+        <figure className={styles.video}>
         <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${video.src}`}
+            src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.src)}`}
             title={video.title}
-            frameBorder="0"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
         />
-        <div className={styles.title}>{video.title}</div>
-        </div>
+        <figcaption className={styles.title}>{video.title}</figcaption>
+        </figure>
     );
     }

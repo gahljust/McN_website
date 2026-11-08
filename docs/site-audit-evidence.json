@@ -1,0 +1,538 @@
+{
+  "assessment_date": "2026-11-07",
+  "repository_commit": "4c73737",
+  "scope": "Local checkout, all MDX pages, custom components, configuration, assets, production build, rendered HTML and selected desktop/mobile browser flows.",
+  "installed_versions": {
+    "next": "13.1.6",
+    "nextra": "2.2.14",
+    "nextra-theme-docs": "2.2.14",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.5"
+  },
+  "content": {
+    "mdx_pages": 13,
+    "source_lines": 3756,
+    "image_files": 107,
+    "source_images_mib": 47.9,
+    "largest_source_images": [
+      {
+        "path": "public/images/moller_shower/pion.png",
+        "mib": 1.61
+      },
+      {
+        "path": "public/images/3dprint/3dpr_012.png",
+        "mib": 1.5
+      },
+      {
+        "path": "public/images/Showermax_6.png",
+        "mib": 1.38
+      },
+      {
+        "path": "public/images/root/root_28.png",
+        "mib": 1.38
+      },
+      {
+        "path": "public/images/moller_shower/spectrometer_1.png",
+        "mib": 1.29
+      },
+      {
+        "path": "public/images/3dprint/3dpr_023.png",
+        "mib": 1.09
+      },
+      {
+        "path": "public/images/Showermax_3.png",
+        "mib": 1.08
+      },
+      {
+        "path": "public/images/3dprint/3dpr_019.png",
+        "mib": 1.07
+      }
+    ]
+  },
+  "production_build": {
+    "command": "npm run build",
+    "exit_code": 0,
+    "content_routes": 13,
+    "warnings": [
+      "Malformed Autodesk href",
+      "Outdated caniuse-lite data",
+      "Optional sharp dependency absent"
+    ],
+    "first_load_js_reported_range": "165\u2013176 kB in Next.js build output"
+  },
+  "accessibility_and_metadata": {
+    "rendered_content_images_without_nonempty_alt": 85,
+    "count_by_route": {
+      "/MOLLER/Labsandequip": 6,
+      "/MOLLER/MOLLER": 9,
+      "/Tutorials/website": 14,
+      "/Tutorials/Basics/ROOT": 28,
+      "/Tutorials/Basics/G4": 6,
+      "/Tutorials/CAD/3Dprinting": 22
+    },
+    "descriptions_by_route": {
+      "/": [
+        "Nextra: the next docs builder"
+      ],
+      "/about": [
+        "Nextra: the next docs builder"
+      ],
+      "/links": [
+        "Nextra: the next docs builder"
+      ],
+      "/MOLLER/Labsandequip": [
+        "Nextra: the next docs builder"
+      ],
+      "/MOLLER/MOLLER": [
+        "Nextra: the next docs builder"
+      ],
+      "/MOLLER/Showermax": [
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/Getting_started": [
+        "Intorduction to the tutorials",
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/website": [
+        "How to maintain the website",
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/Basics/ROOT": [
+        "Learn how to use the ROOT analysis framework.",
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/Basics/Terminal": [
+        "Learn how to use the terminal.",
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/Basics/G4": [
+        "Learn how to use the ROOT analysis framework.",
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/CAD/Basics": [
+        "Nextra: the next docs builder"
+      ],
+      "/Tutorials/CAD/3Dprinting": [
+        "Nextra: the next docs builder"
+      ]
+    }
+  },
+  "browser_checks": {
+    "desktop_viewport": [
+      1280,
+      720
+    ],
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "search_query": "ROOT",
+    "search_returns_root_guide": true,
+    "search_geant4_label": "Tutorial: ROOT Analysis Framework Basics",
+    "mobile_menu_operable": true,
+    "moller_video_iframe_width_px": 560,
+    "moller_article_scroll_width_px": 616,
+    "mobile_document_scroll_width_px": 407
+  },
+  "source_asset_case_mismatches": [
+    {
+      "page": "pages/MOLLER/Showermax.mdx",
+      "line": 120,
+      "referenced": "public/images/showermax_6.png",
+      "tracked": "public/images/Showermax_6.png",
+      "status": "Potential case-sensitive build failure; local Mac build succeeds."
+    }
+  ],
+  "npm_audit": {
+    "command": "npm audit --json",
+    "reported_affected_packages_by_severity": {
+      "info": 0,
+      "low": 1,
+      "moderate": 8,
+      "high": 11,
+      "critical": 1,
+      "total": 21
+    },
+    "direct_dependencies": [
+      {
+        "name": "next",
+        "severity": "critical",
+        "installed_version": "13.1.6"
+      },
+      {
+        "name": "nextra",
+        "severity": "high",
+        "installed_version": "2.2.14"
+      },
+      {
+        "name": "nextra-theme-docs",
+        "severity": "moderate",
+        "installed_version": "2.2.14"
+      }
+    ],
+    "interpretation": "Package advisory results, not proof of a deployed exploit. Applicability depends on the used framework features and hosting."
+  },
+  "external_links": {
+    "unique_rendered_urls": 78,
+    "public_destinations_checked": 54,
+    "method": "Unauthenticated curl HEAD requests with redirects, 5 second connect timeout and 15 second total timeout; selected 404 results then checked with GET.",
+    "excluded": "Private DocDB, lab Elog, account creation/dashboard, issue submission URLs, and duplicate instances of the same malformed GitHub edit-link pattern.",
+    "initial_status_counts": {
+      "200": 39,
+      "404": 3,
+      "403": 2,
+      "503": 1,
+      "000": 9
+    },
+    "interpretation": "HTTP 200 only establishes response status. HTTP 000, 403 and 503 results are inconclusive for content validity.",
+    "get_confirmed_missing": [
+      "https://github.com/gahljust/McN_website/pages/Tutorials/Getting_started.mdx",
+      "https://ubuntu.com/tutorials/command-line-basics",
+      "https://www2.cose.isu.edu/~mcnudust/"
+    ],
+    "get_confirmed_replacement": {
+      "url": "https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/",
+      "status": 200
+    },
+    "request_results": [
+      {
+        "url": "https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line",
+        "status": "200",
+        "final": "https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line",
+        "error": ""
+      },
+      {
+        "url": "https://brew.sh/",
+        "status": "200",
+        "final": "https://brew.sh/",
+        "error": ""
+      },
+      {
+        "url": "https://code.visualstudio.com/",
+        "status": "200",
+        "final": "https://code.visualstudio.com/",
+        "error": ""
+      },
+      {
+        "url": "https://discord.com",
+        "status": "200",
+        "final": "https://discord.com/",
+        "error": ""
+      },
+      {
+        "url": "https://docs.anaconda.com/free/miniconda/",
+        "status": "200",
+        "final": "https://www.anaconda.com/docs/getting-started/concepts/anaconda-or-miniconda",
+        "error": ""
+      },
+      {
+        "url": "https://docs.conda.io/en/latest/miniconda.html",
+        "status": "200",
+        "final": "https://docs.conda.io/en/latest/miniconda.html",
+        "error": ""
+      },
+      {
+        "url": "https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html",
+        "status": "200",
+        "final": "https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html",
+        "error": ""
+      },
+      {
+        "url": "https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html",
+        "status": "200",
+        "final": "https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html",
+        "error": ""
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Cherenkov_radiation",
+        "status": "200",
+        "final": "https://en.wikipedia.org/wiki/Cherenkov_radiation",
+        "error": ""
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Electroweak_interaction",
+        "status": "200",
+        "final": "https://en.wikipedia.org/wiki/Electroweak_interaction",
+        "error": ""
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Weinberg_angle",
+        "status": "200",
+        "final": "https://en.wikipedia.org/wiki/Weinberg_angle",
+        "error": ""
+      },
+      {
+        "url": "https://geant4-forum.web.cern.ch/",
+        "status": "000",
+        "final": "https://geant4-forum.web.cern.ch/",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/index.html",
+        "status": "200",
+        "final": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/index.html",
+        "error": ""
+      },
+      {
+        "url": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html",
+        "status": "000",
+        "final": "https://geant4-userdoc.web.cern.ch/UsersGuides/ForToolkitDeveloper/html/index.html",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://geant4.web.cern.ch/",
+        "status": "200",
+        "final": "https://geant4.web.cern.ch/",
+        "error": ""
+      },
+      {
+        "url": "https://github.com/JeffersonLab/remoll",
+        "status": "200",
+        "final": "https://github.com/JeffersonLab/remoll",
+        "error": ""
+      },
+      {
+        "url": "https://github.com/gahljust/McN_website",
+        "status": "200",
+        "final": "https://github.com/gahljust/McN_website",
+        "error": ""
+      },
+      {
+        "url": "https://github.com/gahljust/McN_website/pages/Tutorials/Getting_started.mdx",
+        "status": "404",
+        "final": "https://github.com/gahljust/McN_website/pages/Tutorials/Getting_started.mdx",
+        "error": ""
+      },
+      {
+        "url": "https://help.autodesk.com/view/INVNTOR/2021/ENU/?guid=GUID-25E3BABE-0FF4-4542-854E-AD2F59E4BB4A",
+        "status": "200",
+        "final": "https://help.autodesk.com/view/INVNTOR/2021/ENU/?guid=GUID-25E3BABE-0FF4-4542-854E-AD2F59E4BB4A",
+        "error": ""
+      },
+      {
+        "url": "https://help.autodesk.com/view/fusion360/ENU/courses/",
+        "status": "403",
+        "final": "https://www.autodesk.com/learn/ondemand/collection/self-paced-learning-for-fusion",
+        "error": ""
+      },
+      {
+        "url": "https://help.cose.isu.edu/",
+        "status": "200",
+        "final": "https://help.cose.isu.edu/",
+        "error": ""
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps",
+        "status": "200",
+        "final": "https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps",
+        "error": ""
+      },
+      {
+        "url": "https://mdxjs.com/",
+        "status": "200",
+        "final": "https://mdxjs.com/",
+        "error": ""
+      },
+      {
+        "url": "https://moller.jlab.org/moller_root/",
+        "status": "200",
+        "final": "https://moller.jlab.org/moller_root/",
+        "error": ""
+      },
+      {
+        "url": "https://moller.jlab.org/wiki/index.php/Main_Page",
+        "status": "200",
+        "final": "https://moller.jlab.org/wiki/index.php/Main_Page",
+        "error": ""
+      },
+      {
+        "url": "https://nextjs.org/docs",
+        "status": "200",
+        "final": "https://nextjs.org/docs",
+        "error": ""
+      },
+      {
+        "url": "https://nextra.vercel.app/",
+        "status": "200",
+        "final": "https://nextra.site/",
+        "error": ""
+      },
+      {
+        "url": "https://react.dev/learn",
+        "status": "200",
+        "final": "https://react.dev/learn",
+        "error": ""
+      },
+      {
+        "url": "https://root-forum.cern.ch/",
+        "status": "000",
+        "final": "https://root-forum.cern.ch/",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://root.cern.ch/primer/",
+        "status": "200",
+        "final": "https://root.cern.ch/primer/",
+        "error": ""
+      },
+      {
+        "url": "https://root.cern/doc/master/group__Tutorials.html",
+        "status": "000",
+        "final": "https://root.cern/doc/master/group__Tutorials.html",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://root.cern/doc/master/index.html",
+        "status": "200",
+        "final": "https://root.cern/doc/master/index.html",
+        "error": ""
+      },
+      {
+        "url": "https://root.cern/install/",
+        "status": "200",
+        "final": "https://root.cern/install/",
+        "error": ""
+      },
+      {
+        "url": "https://root.cern/manual/",
+        "status": "000",
+        "final": "https://root.cern/manual/",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://root.cern/primer/",
+        "status": "000",
+        "final": "https://root.cern/primer/",
+        "error": "curl: (28) SSL connection timeout"
+      },
+      {
+        "url": "https://support.makerbot.com/s/article/1667410778218",
+        "status": "200",
+        "final": "https://support.makerbot.com/s/article/1667410778218",
+        "error": ""
+      },
+      {
+        "url": "https://support.makerbot.com/s/article/1667410778241",
+        "status": "200",
+        "final": "https://support.makerbot.com/s/article/1667410778241",
+        "error": ""
+      },
+      {
+        "url": "https://ubuntu.com/tutorials/command-line-basics",
+        "status": "404",
+        "final": "https://ubuntu.com/tutorials/command-line-basics",
+        "error": ""
+      },
+      {
+        "url": "https://ultimaker.com/software/ultimaker-cura",
+        "status": "200",
+        "final": "https://ultimaker.com/software/ultimaker-cura/",
+        "error": ""
+      },
+      {
+        "url": "https://vercel.com/",
+        "status": "200",
+        "final": "https://vercel.com/",
+        "error": ""
+      },
+      {
+        "url": "https://vercel.com/docs",
+        "status": "200",
+        "final": "https://vercel.com/docs",
+        "error": ""
+      },
+      {
+        "url": "https://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018",
+        "status": "503",
+        "final": "https://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018",
+        "error": ""
+      },
+      {
+        "url": "https://www.autodesk.com/support/account/education/students-educators/get-started",
+        "status": "403",
+        "final": "https://www.autodesk.com/support/account/education/students-educators/get-started",
+        "error": ""
+      },
+      {
+        "url": "https://www.energy.gov",
+        "status": "200",
+        "final": "https://www.energy.gov/",
+        "error": ""
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/creating-a-dual-boot-system-with-linux-and-windows/",
+        "status": "200",
+        "final": "https://www.geeksforgeeks.org/techtips/setup-dual-boot-with-linux-and-windows/",
+        "error": ""
+      },
+      {
+        "url": "https://www.isu.edu",
+        "status": "200",
+        "final": "https://www.isu.edu/",
+        "error": ""
+      },
+      {
+        "url": "https://www.jlab.org",
+        "status": "200",
+        "final": "https://www.jlab.org/",
+        "error": ""
+      },
+      {
+        "url": "https://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/",
+        "status": "000",
+        "final": "https://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/",
+        "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)"
+      },
+      {
+        "url": "https://www.nano-editor.org/dist/latest/cheatsheet.html",
+        "status": "200",
+        "final": "https://www.nano-editor.org/dist/latest/cheatsheet.html",
+        "error": ""
+      },
+      {
+        "url": "https://www.simplify3d.com/resources/print-quality-troubleshooting/",
+        "status": "200",
+        "final": "https://www.simplify3d.com/resources/print-quality-troubleshooting/",
+        "error": ""
+      },
+      {
+        "url": "https://www.solidworks.com/product/students",
+        "status": "000",
+        "final": "https://www.solidworks.com/product/students",
+        "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)"
+      },
+      {
+        "url": "https://www.solidworks.com/support/home",
+        "status": "000",
+        "final": "https://www.solidworks.com/support/home",
+        "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)"
+      },
+      {
+        "url": "https://www.virtualbox.org/",
+        "status": "200",
+        "final": "https://www.virtualbox.org/",
+        "error": ""
+      },
+      {
+        "url": "https://www2.cose.isu.edu/~mcnudust/",
+        "status": "404",
+        "final": "https://www2.cose.isu.edu/~mcnudust/",
+        "error": ""
+      }
+    ]
+  },
+  "limits": [
+    "Production hosting and deployed revision were not inspected.",
+    "Private services and credentials were not accessed.",
+    "ROOT, Geant4 and printer exercises were inspected as source; not executed with lab data or hardware.",
+    "No Lighthouse performance score or full accessibility conformance audit was run."
+  ],
+  "reference_sources": [
+    "https://nextjs.org/support-policy",
+    "https://nextra.site/docs",
+    "https://root.cern.ch/install/",
+    "https://geant4.web.cern.ch/documentation/dev/bfad_html/ForApplicationDevelopers/Analysis/managers.html",
+    "https://www.isu.edu/brand/design/colors/"
+  ]
+}

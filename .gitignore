@@ -1,2 +1,8 @@
 .next
 node_modules
+.DS_Store
+*.tsbuildinfo
+lib/generated/
+public/search-index.json
+.env*.local
+.env.local

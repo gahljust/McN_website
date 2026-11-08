@@ -1,0 +1,163 @@
+{
+  "name": "McNulty Lab",
+  "title": "Dr. McNulty's Physics Lab.",
+  "university": "Idaho State University",
+  "introduction": "It includes tutorials meant to give incoming students a head start on the software and hardware they will be using.",
+  "repository": "https://github.com/gahljust/McN_website",
+  "branch": "main",
+  "navigation": [
+    {
+      "label": "Start Here",
+      "href": "/start-here"
+    },
+    {
+      "label": "Tutorials",
+      "href": "/tutorials"
+    },
+    {
+      "label": "Lab Handbook",
+      "href": "/lab/equipment"
+    },
+    {
+      "label": "Research",
+      "href": "/research"
+    },
+    {
+      "label": "Resources",
+      "href": "/resources"
+    }
+  ],
+  "pages": [
+    {
+      "href": "/",
+      "source": "index.mdx",
+      "label": "Home",
+      "section": "",
+      "legacySource": "pages/index.mdx",
+      "layout": "landing"
+    },
+    {
+      "href": "/about",
+      "source": "about.mdx",
+      "label": "About",
+      "section": "",
+      "legacySource": "pages/about.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/resources",
+      "source": "resources.mdx",
+      "label": "Resources",
+      "section": "",
+      "legacySource": "pages/links.mdx",
+      "layout": "landing"
+    },
+    {
+      "href": "/research/moller",
+      "source": "research/moller.mdx",
+      "label": "MOLLER",
+      "section": "Research",
+      "legacySource": "pages/MOLLER/MOLLER.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/research/showermax",
+      "source": "research/showermax.mdx",
+      "label": "ShowerMax",
+      "section": "Research",
+      "legacySource": "pages/MOLLER/Showermax.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/lab/equipment",
+      "source": "lab/equipment.mdx",
+      "label": "Labs and Equipment",
+      "section": "Lab handbook",
+      "legacySource": "pages/MOLLER/Labsandequip.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/start-here",
+      "source": "start-here.mdx",
+      "label": "Getting Started",
+      "section": "",
+      "legacySource": "pages/Tutorials/Getting_started.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials/terminal",
+      "source": "tutorials/terminal.mdx",
+      "label": "Terminal",
+      "section": "Tutorials",
+      "legacySource": "pages/Tutorials/Basics/Terminal.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials/root",
+      "source": "tutorials/root.mdx",
+      "label": "ROOT",
+      "section": "Tutorials",
+      "legacySource": "pages/Tutorials/Basics/ROOT.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials/geant4",
+      "source": "tutorials/geant4.mdx",
+      "label": "Geant4",
+      "section": "Tutorials",
+      "legacySource": "pages/Tutorials/Basics/G4.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials/cad",
+      "source": "tutorials/cad.mdx",
+      "label": "CAD",
+      "section": "Tutorials",
+      "legacySource": "pages/Tutorials/CAD/Basics.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials/3d-printing",
+      "source": "tutorials/3d-printing.mdx",
+      "label": "3D Printing",
+      "section": "Tutorials",
+      "legacySource": "pages/Tutorials/CAD/3Dprinting.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/maintainers",
+      "source": "maintainers.mdx",
+      "label": "Website Maintenance",
+      "section": "",
+      "legacySource": "pages/Tutorials/website.mdx",
+      "layout": "article"
+    },
+    {
+      "href": "/tutorials",
+      "source": "tutorials/index.mdx",
+      "label": "Tutorials",
+      "section": "",
+      "layout": "landing"
+    },
+    {
+      "href": "/research",
+      "source": "research/index.mdx",
+      "label": "MOLLER/ShowerMax",
+      "section": "",
+      "layout": "landing"
+    }
+  ],
+  "redirects": {
+    "/links": "/resources",
+    "/MOLLER/MOLLER": "/research/moller",
+    "/MOLLER/Showermax": "/research/showermax",
+    "/MOLLER/Labsandequip": "/lab/equipment",
+    "/Tutorials/Getting_started": "/start-here",
+    "/Tutorials/Basics/Terminal": "/tutorials/terminal",
+    "/Tutorials/Basics/ROOT": "/tutorials/root",
+    "/Tutorials/Basics/G4": "/tutorials/geant4",
+    "/Tutorials/CAD/Basics": "/tutorials/cad",
+    "/Tutorials/CAD/3Dprinting": "/tutorials/3d-printing",
+    "/Tutorials/website": "/maintainers"
+  }
+}

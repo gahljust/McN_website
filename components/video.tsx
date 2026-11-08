@@ -1,15 +1,10 @@
-// this is the component that will be used to display all videos
-// It will use the react <videos> tag to display the video
-
-import React from 'react';
 import styles from './video.module.css';
 
-export default function Video({ video }) {
+export default function Video({ video }: { video: { src: string; title: string } }) {
   return (
-    // align the video to the center of the page
-    <div className = {styles.video}>
-        <video width="560" height="315" controls src={video.src} />
-        <div className={styles.title}>{video.title}</div>
-    </div >
+    <figure className={styles.video}>
+      <video controls preload="metadata" src={video.src} aria-label={video.title} />
+      <figcaption className={styles.title}>{video.title}</figcaption>
+    </figure>
   );
 }
