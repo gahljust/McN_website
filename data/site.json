@@ -79,7 +79,7 @@
     {
       "href": "/start-here",
       "source": "start-here.mdx",
-      "label": "Getting Started",
+      "label": "Start Here",
       "section": "",
       "legacySource": "pages/Tutorials/Getting_started.mdx",
       "layout": "article"
@@ -142,7 +142,7 @@
     {
       "href": "/research",
       "source": "research/index.mdx",
-      "label": "MOLLER/ShowerMax",
+      "label": "Research",
       "section": "",
       "layout": "landing"
     }

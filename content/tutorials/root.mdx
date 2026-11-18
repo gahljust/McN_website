@@ -39,7 +39,7 @@ There are many other great resources for learning ROOT. We recommend the followi
 These will also be discused more at the end of this tutorial.
 
 ## Prerequisites
-It is strongly recommended that you have worked throught the [Terminal](/Tutorials/Basics/Terminal/) tutorial before starting this one. This tutorial will assume that you have a basic understanding of the terminal and how to use it.
+It is strongly recommended that you have worked throught the [Terminal](/tutorials/terminal) tutorial before starting this one. This tutorial will assume that you have a basic understanding of the terminal and how to use it.
 
 ## Download and Installation
 Before you can start using ROOT, you'll need to install it on your computer. Follow the installation instructions on the ROOT website for your operating system.
@@ -118,7 +118,7 @@ In this part we will first open a ROOT file using the TBrowser to see what the f
 
 Before you begin you will need to get the root file from the daq3 server, and save it to your computer. This file contains the data from a test beam of the Showermax detector.
 
-You will need to use scp exactly like you did in the terminal tutorial [here](/Tutorials/Basics/Terminal/#scp_2).
+You will need to use scp exactly like you did in the terminal tutorial [here](/tutorials/terminal#scp_2).
 
 The file is located at:
 
@@ -338,7 +338,7 @@ There are a lot of options, we are going to ignore most of those for now. We jus
 
 
 
-This is not a great fit obviously. In fact there are a couple of steps that we didn't go through. The main problem is there is a very tall peak at the begining. This is called the pedestal, and is a feature of the [ADC](/MOLLER/Labsandequip), it's actually not apart of our data. We need to remove this before we can get our fit.
+This is not a great fit obviously. In fact there are a couple of steps that we didn't go through. The main problem is there is a very tall peak at the begining. This is called the pedestal, and is a feature of the [ADC](/lab/equipment), it's actually not apart of our data. We need to remove this before we can get our fit.
 
 At this point we could do all of these things from the root command line. However it can get messy and confusing pretty quickly, we find the root command line to be useful for quick looks. When you have several things you want to accomplish your best option is to use a macro. There is a huge benifit to using macros, mainly they are repeatable! Do it once and you have it forever.
 

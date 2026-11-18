@@ -18,3 +18,9 @@
   color: var(--muted-ink);
   text-align: center;
 }
+.credit {
+  display: block;
+  margin-top: .2rem;
+  font-size: .75rem;
+  opacity: .85;
+}
