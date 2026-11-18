@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { canonicalHref, contentPathToHref } from '../lib/routing.mjs'
+import { canonicalHref, contentPathToHref, neighbours } from '../lib/routing.mjs'
 import { searchEntries } from '../lib/search.mjs'
 import { prepareContent } from '../scripts/prepare-content.mjs'
 
@@ -58,4 +58,12 @@ test('the migrated content keeps legacy anchors and distinguishes ROOT from Gean
   assert.ok(index.some(entry => entry.href === '/tutorials/terminal#ssh--secure-shell'))
   assert.ok(index.some(entry => entry.href === '/tutorials/3d-printing#print-head--extruder-nozzle-fan'))
   assert.deepEqual(Object.keys(images), Object.keys(images).sort())
+})
+
+test('pager neighbours stop at both ends of a sequence', () => {
+  const paths = ['/a', '/b', '/c']
+  assert.deepEqual(neighbours(paths, '/a'), { previous: null, next: '/b' })
+  assert.deepEqual(neighbours(paths, '/b'), { previous: '/a', next: '/c' })
+  assert.deepEqual(neighbours(paths, '/c'), { previous: '/b', next: null })
+  assert.deepEqual(neighbours(paths, '/z'), { previous: null, next: null })
 })

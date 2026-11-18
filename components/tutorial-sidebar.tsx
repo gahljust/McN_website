@@ -6,14 +6,14 @@ import type { TocItem } from './table-of-contents'
 
 type Tutorial = { href: string; label: string }
 
-function SidebarLinks({ entries, pageHref, headings, active, sections }: { entries: Tutorial[]; pageHref: string; headings: TocItem[]; active: string; sections: RefObject<HTMLElement | null> }) {
+function SidebarLinks({ group, entries, pageHref, headings, active, sections }: { group: string; entries: Tutorial[]; pageHref: string; headings: TocItem[]; active: string; sections: RefObject<HTMLElement | null> }) {
   return <>
-    <nav className="tutorial-pages" aria-label="Tutorials"><p className="tutorial-menu-label">Tutorials</p><ul>{entries.map(entry => <li key={entry.href}><Link href={entry.href} aria-current={entry.href === pageHref ? 'page' : undefined}>{entry.label}</Link></li>)}</ul></nav>
+    <nav className="tutorial-pages" aria-label={group}><p className="tutorial-menu-label">{group}</p><ul>{entries.map(entry => <li key={entry.href}><Link href={entry.href} aria-current={entry.href === pageHref ? 'page' : undefined}>{entry.label}</Link></li>)}</ul></nav>
     {headings.length > 0 && <div className="tutorial-sections"><p className="tutorial-menu-label">On this page</p><nav ref={sections} aria-label="On this page"><ul>{headings.map(heading => <li key={heading.id} data-depth={heading.depth}><a href={`#${heading.id}`} aria-current={active === heading.id ? 'location' : undefined}>{heading.value}</a></li>)}</ul></nav></div>}
   </>
 }
 
-export function TutorialSidebar({ entries, pageHref, headings }: { entries: Tutorial[]; pageHref: string; headings: TocItem[] }) {
+export function TutorialSidebar({ group, entries, pageHref, headings }: { group: string; entries: Tutorial[]; pageHref: string; headings: TocItem[] }) {
   const [active, setActive] = useState(headings[0]?.id || '')
   const desktopSections = useRef<HTMLElement>(null)
   const mobileSections = useRef<HTMLElement>(null)
@@ -37,10 +37,16 @@ export function TutorialSidebar({ entries, pageHref, headings }: { entries: Tuto
       setActive(next)
     }
     function schedule() { if (!frame) frame = requestAnimationFrame(update) }
+    function fromHash() {
+      const id = decodeURIComponent(window.location.hash.slice(1))
+      if (id && elements.some(element => element.id === id)) setActive(id)
+    }
     update()
+    if (window.location.hash) fromHash()
+    window.addEventListener('hashchange', fromHash)
     window.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
-    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule) }
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('hashchange', fromHash); window.removeEventListener('resize', schedule) }
   }, [headings])
 
   function revealSection() {
@@ -55,8 +61,8 @@ export function TutorialSidebar({ entries, pageHref, headings }: { entries: Tuto
   }
   useEffect(revealSection, [active])
 
-  return <aside className="tutorial-sidebar" aria-label="Tutorial navigation">
-    <div className="tutorial-sidebar-desktop"><SidebarLinks entries={entries} pageHref={pageHref} headings={headings} active={active} sections={desktopSections} /></div>
-    <details ref={mobileMenu} className="tutorial-sidebar-mobile" onToggle={event => { if (event.currentTarget.open) requestAnimationFrame(revealSection) }}><summary><span>{current?.label}</span>{section && <small>{section.value}</small>}</summary><div className="tutorial-mobile-panel" onClick={event => { if ((event.target as HTMLElement).closest('a') && mobileMenu.current) mobileMenu.current.open = false }}><SidebarLinks entries={entries} pageHref={pageHref} headings={headings} active={active} sections={mobileSections} /></div></details>
+  return <aside className="tutorial-sidebar" aria-label={`${group} navigation`}>
+    <div className="tutorial-sidebar-desktop"><SidebarLinks group={group} entries={entries} pageHref={pageHref} headings={headings} active={active} sections={desktopSections} /></div>
+    <details ref={mobileMenu} className="tutorial-sidebar-mobile" onKeyDown={event => { if (event.key === 'Escape' && event.currentTarget.open) { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus() } }} onToggle={event => { if (event.currentTarget.open) requestAnimationFrame(revealSection) }}><summary><span>{current?.label}</span>{section && <small>{section.value}</small>}</summary><div className="tutorial-mobile-panel" onClick={event => { if ((event.target as HTMLElement).closest('a') && mobileMenu.current) mobileMenu.current.open = false }}><SidebarLinks group={group} entries={entries} pageHref={pageHref} headings={headings} active={active} sections={mobileSections} /></div></details>
   </aside>
 }
